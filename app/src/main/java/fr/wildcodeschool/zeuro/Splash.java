@@ -9,7 +9,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 public class Splash extends AppCompatActivity {
-        private static int SPLASH_TIME_OUT = 6000;
+        private static int SPLASH_TIME_OUT ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,14 @@ public class Splash extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 iv.startAnimation(an2);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent runmain = new Intent(Splash.this,MainActivity.class);
+                        startActivity(runmain);
+                        finish();
+                    }
+                }, SPLASH_TIME_OUT);
                 finish();
                 Intent i = new Intent (Splash.this.getBaseContext(),MainActivity.class);
                 startActivity(i);
@@ -41,12 +49,5 @@ public class Splash extends AppCompatActivity {
 
             }
         });
-       new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent runmain = new Intent(Splash.this,MainActivity.class);
-                startActivity(runmain);
-                finish();
-        }
-    }, SPLASH_TIME_OUT);
+
 }}
