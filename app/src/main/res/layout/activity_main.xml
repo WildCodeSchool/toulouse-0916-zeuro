@@ -10,12 +10,44 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="fr.wildcodeschool.zeuro.MainActivity">
 
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="80dp"
+        android:id="@+id/image_logo"
+        android:src="@drawable/smiley_logo"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="111dp"
-        android:layout_marginTop="123dp" />
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="80dp"
+        android:text="Arrête de chercher, laisse toi tenter!"
+        android:id="@+id/slogan"/>
+
+    <Button
+        android:text="Recherche"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="280dp"
+        android:id="@+id/profilButton" />
+
+    <Button
+        android:text="Profil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:id="@+id/rechercheButton"
+        android:layout_marginTop="280dp"/>
+
+    <Switch
+        android:text="Me tenir informé quand mon forfait est dépassé"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:id="@+id/switch1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+
 </RelativeLayout>
