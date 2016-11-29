@@ -3,6 +3,8 @@ package fr.wildcodeschool.zeuro;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import java.io.Serializable;
+
 public class ProfilActivity extends AppCompatActivity {
 
     @Override
