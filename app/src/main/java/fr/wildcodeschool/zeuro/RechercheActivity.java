@@ -22,7 +22,10 @@ public class RechercheActivity extends AppCompatActivity {
         ForfaitObj orange3 = new ForfaitObj(R.drawable.logo_sfr,5,1000,250,5,12,(float) 20.99);
         ForfaitObj orange4 = new ForfaitObj(R.drawable.logo_free,6,100,0,3,0,(float) 14.99);
         ForfaitObj orange5 = new ForfaitObj(R.drawable.logo_orange,1,600,100,1,24,(float) 9.99);
-        final ForfaitObj[] myForfait = {orange1, orange2, orange3, orange4, orange5};
+        ForfaitObj orange6 = new ForfaitObj(R.drawable.logo_sfr,5,1000,250,5,12,(float) 20.99);
+        ForfaitObj orange7 = new ForfaitObj(R.drawable.logo_free,6,100,0,3,0,(float) 14.99);
+        ForfaitObj orange8 = new ForfaitObj(R.drawable.logo_orange,1,600,100,1,24,(float) 9.99);
+        final ForfaitObj[] myForfait = {orange1, orange2, orange3, orange4, orange5, orange6, orange7, orange8};
         ListAdapter listAdap = new Custom_Adapt(this, myForfait);
         final ListView mListeView = (ListView) findViewById(R.id.offerList);
         mListeView.setAdapter(listAdap);
