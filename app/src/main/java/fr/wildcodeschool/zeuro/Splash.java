@@ -18,7 +18,7 @@ public class Splash extends AppCompatActivity {
 
         final ImageView iv = (ImageView) findViewById(R.id.imgSplash);
         final Animation an = AnimationUtils.loadAnimation(getBaseContext(),R.anim.rotate);
-        final Animation an2 = AnimationUtils.loadAnimation(getBaseContext(),R.anim.abc_fade_out);
+      /*  final Animation an2 = AnimationUtils.loadAnimation(getBaseContext(),R.anim.abc_fade_out);*/
         iv.startAnimation(an);
         an.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -28,7 +28,7 @@ public class Splash extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                iv.startAnimation(an2);
+                /*iv.startAnimation(an2);*/
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
