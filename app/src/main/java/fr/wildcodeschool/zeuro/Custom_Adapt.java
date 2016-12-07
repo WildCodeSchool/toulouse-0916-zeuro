@@ -8,19 +8,22 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 /**
  * Created by apprenti on 25/11/16.
  */
 
-public class Custom_Adapt extends ArrayAdapter<ForfaitObj> {
+class Custom_Adapt extends ArrayAdapter<ForfaitObj> {
     private final Activity context;
-    private final ForfaitObj[] list;
+    private final ArrayList<ForfaitObj> listForfait;
 
 
-    public Custom_Adapt(Activity context, ForfaitObj[] list) {
-        super(context, R.layout.list, list);
+    public Custom_Adapt(Activity context, ArrayList<ForfaitObj> listForfait) {
+        super(context, R.layout.list, listForfait);
         this.context = context;
-        this.list = list;
+        this.listForfait = listForfait;
     }
 
     public View getView(int posisition, View View, ViewGroup parent) {
@@ -44,5 +47,9 @@ public class Custom_Adapt extends ArrayAdapter<ForfaitObj> {
         element.setImageResource(m.getImgoperateur());
 
         return rowView;
+    }
+
+    public void notif(){
+        this.notifyDataSetChanged();
     }
 }

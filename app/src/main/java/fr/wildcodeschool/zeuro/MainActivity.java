@@ -6,46 +6,55 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Switch;
-import android.widget.TextView;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 
 public class MainActivity extends AppCompatActivity {
-
-    private ImageView logo;
-    private Button  recherche, profil;
-    private Switch notif;
-    private TextView title;
-
+    private Button result;
+    private  ListView mListeView;
+    static protected String FORFAIT = "fr.wildcodeschool.zeuro.FORFAIT";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
-
-        title = (TextView) findViewById(R.id.slogan);
-        logo = (ImageView) findViewById(R.id.image_logo);
-        notif = (Switch) findViewById(R.id.switch1);
-        recherche = (Button) findViewById(R.id.rechercheButton);
-        profil = (Button) findViewById(R.id.profilButton);
-
-        recherche.setOnClickListener(new View.OnClickListener() {
+        mListeView = (ListView) findViewById(R.id.list_itemm);
+        final ArrayList<ForfaitObj> listForfait = new ArrayList<>();
+        listForfait.add(new ForfaitObj(R.drawable.logo_orange,0,200,500,5,0,(float) 19.99));
+        listForfait.add(new ForfaitObj(R.drawable.logo_bouygues,3,0,0,10,24,(float) 24.99));
+        listForfait.add(new ForfaitObj(R.drawable.logo_sfr,5,1000,250,5,12,(float) 20.99));
+        listForfait.add(new ForfaitObj(R.drawable.logo_free,6,100,0,3,0,(float) 14.99));
+        listForfait.add(new ForfaitObj(R.drawable.logo_orange,1,600,100,1,24,(float) 9.99));
+        result = (Button) findViewById(R.id.rechercheButton);
+        final ListAdapter listAdap = new Custom_Adapt(this, listForfait);
+        mListeView.setAdapter(listAdap);
+        result.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent rechercheIntent = new Intent(MainActivity.this, RechercheActivity.class);
-                startActivity(rechercheIntent);
+                Collections.sort(listForfait, new Comparator<ForfaitObj>() {
+                    @Override
+                    public int compare(ForfaitObj tc1, ForfaitObj tc2) {
+                        return (int) (tc1.getPrix() - tc2.getPrix());
+                    }
+                });
+                listAdap.notif();
             }
         });
-        profil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent profilIntent = new Intent(MainActivity.this, ProfilActivity.class);
-                startActivity(profilIntent);
-            }
-        });
+        mListeView.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick (AdapterView<?> parent, View v, int posisition, long id) {
+                        Intent intent = new Intent(MainActivity.this, DetalsActivity.class);
+                        intent.putExtra("MainActivity", listForfait.get(posisition));
+                        startActivity(intent);
+                    }});
+
+
     }
+
 }

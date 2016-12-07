@@ -3,8 +3,10 @@ package fr.wildcodeschool.zeuro;
 /**
  * Created by apprenti on 25/11/16.
  */
+import android.os.Parcelable;
+import android.os.Parcelable;
 import java.io.Serializable;
-
+import java.util.ArrayList;
 public class ForfaitObj implements Serializable {
     private Integer  imgoperateur, apelle, sms, mms, internet, engagement;
     private float prix;
@@ -72,5 +74,6 @@ public class ForfaitObj implements Serializable {
     public void setEngagement(Integer engagement) {
         this.engagement = engagement;
     }
+
 
 }

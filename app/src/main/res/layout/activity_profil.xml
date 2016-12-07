@@ -10,11 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="fr.wildcodeschool.zeuro.ProfilActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-
     <Button
         android:text="Editer mon profil"
         android:layout_width="wrap_content"
@@ -22,6 +17,5 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="90dp"
         android:id="@+id/button2" />
-
 
 </RelativeLayout>

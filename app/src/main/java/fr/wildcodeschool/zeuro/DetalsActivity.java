@@ -19,12 +19,12 @@ public class DetalsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detals);
-        ForfaitObj aplForfait = (ForfaitObj) getIntent().getSerializableExtra(RechercheActivity.FORFAIT);
+        ForfaitObj aplForfait = (ForfaitObj) getIntent().getSerializableExtra("MainActivity");
         Button Retour = (Button) findViewById(R.id.idReturn);
         Retour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetalsActivity.this, RechercheActivity.class);
+                Intent intent = new Intent(DetalsActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
