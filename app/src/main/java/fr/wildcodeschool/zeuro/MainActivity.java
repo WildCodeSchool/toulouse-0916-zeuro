@@ -21,12 +21,13 @@ public class MainActivity extends AppCompatActivity {
     private  ListView mListeView;
     private ImageButton imgButtun;
     static protected String FORFAIT = "fr.wildcodeschool.zeuro.FORFAIT";
+    final ArrayList<ForfaitObj> listForfait = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mListeView = (ListView) findViewById(R.id.list_itemm);
-        final ArrayList<ForfaitObj> listForfait = new ArrayList<>();
+
         listForfait.add(new ForfaitObj(R.drawable.logo_orange,0,200,500,5,0,(float) 19.99));
         listForfait.add(new ForfaitObj(R.drawable.logo_bouygues,3,0,0,10,24,(float) 24.99));
         listForfait.add(new ForfaitObj(R.drawable.logo_sfr,5,1000,250,5,12,(float) 20.99));
@@ -38,7 +39,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ProfilActivity.class);
-                intent.putExtra("MainActivity", listForfait);
+                Bundle mBundle = new Bundle();
+                mBundle.putSerializable(FORFAIT, listForfait);
+                intent.putExtras(mBundle);
                 startActivity(intent);
             }
         });
