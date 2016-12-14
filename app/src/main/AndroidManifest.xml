@@ -16,8 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity android:name=".ProfilActivity" />
+        <activity android:name=".HambMenu"/>
         <activity
             android:name=".DetalsActivity"
             android:theme="@style/AppTheme" />

@@ -20,6 +20,12 @@
         android:id="@+id/toolbar">
 
     </android.support.v7.widget.Toolbar>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="testHamb"
+        android:id="@+id/testHamb"
+        android:layout_alignParentBottom="true"/>
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

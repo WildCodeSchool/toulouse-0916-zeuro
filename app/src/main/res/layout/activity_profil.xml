@@ -10,27 +10,70 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="fr.wildcodeschool.zeuro.ProfilActivity">
 
-    <Button
-        android:text="Editer mon profil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="90dp"
-        android:id="@+id/button2" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <SeekBar
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="117dp"
-        android:id="@+id/test" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/test"
-        android:layout_alignStart="@+id/button2"
-        android:layout_marginBottom="40dp"
-        android:id="@+id/testText" />
+        <Button
+            android:text="Editer mon profil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="90dp"
+            android:id="@+id/button2" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Durée d'appel"
+            android:id="@+id/idAppel"/>
+
+        <SeekBar
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:id="@+id/idSeekAppel"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prix"
+            android:id="@+id/idPrix"/>
+
+        <SeekBar
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:id="@+id/idSeekPrix"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Internet"
+            android:id="@+id/idInternet"/>
+
+        <SeekBar
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:id="@+id/idSeekInternet"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SMS"
+            android:id="@+id/idSMS"/>
+
+        <SeekBar
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:id="@+id/idSeekSMS"/>
+
+    </LinearLayout>
+
 
 </RelativeLayout>
