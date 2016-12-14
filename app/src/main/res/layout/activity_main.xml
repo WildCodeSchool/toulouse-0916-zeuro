@@ -19,15 +19,6 @@
         android:layout_marginTop="280dp"
         android:id="@+id/rechercheButton" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="80dp"
-        android:text="Arrête de chercher, laisse toi tenter!"
-        android:id="@+id/slogan"
-        android:layout_marginTop="83dp"
-        android:layout_centerHorizontal="true" />
-
     <Switch
         android:text="Me tenir informé quand mon forfait est dépassé"
         android:layout_width="wrap_content"
@@ -54,4 +45,13 @@
         android:id="@+id/imageButton"
         android:layout_alignParentTop="true"
         android:layout_alignEnd="@+id/switch1" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        app:srcCompat="@drawable/button"
+        android:id="@+id/imageButton2"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp" />
 </RelativeLayout>
