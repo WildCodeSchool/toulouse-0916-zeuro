@@ -11,10 +11,6 @@ import android.widget.TextView;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-/**
- * Created by apprenti on 25/11/16.
- */
-
 class Custom_Adapt extends ArrayAdapter<ForfaitObj> {
     private final Activity context;
     private final ArrayList<ForfaitObj> listForfait;
