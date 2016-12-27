@@ -5,41 +5,38 @@
     android:id="@+id/activity_seekbar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="fr.wildcodeschool.zeuro.Seekbar">
 
-    <com.crystal.crystalrangeseekbar.widgets.BubbleThumbRangeSeekbar
+    <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
         android:id="@+id/rangeSeekbar1"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:corner_radius="10"
         app:min_value="0"
         app:max_value="100"
-        app:steps="5"
+        app:gap="0"
         app:bar_color="#F7BB88"
         app:bar_highlight_color="#E07416"
-        app:data_type="_integer"/>
+        app:left_thumb_color="#BC340C"
+        app:right_thumb_color="#BC340C"
+        app:left_thumb_color_pressed="#E07416"
+        app:right_thumb_color_pressed="#E07416"
+        app:data_type="_integer" />
 
     <TextView
         android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
         android:layout_below="@+id/rangeSeekbar1"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="160dp"
         android:id="@+id/Textmin1" />
 
     <TextView
         android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
         android:layout_below="@+id/Textmin1"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="25dp"
         android:id="@+id/Textmax1" />
-
 
 </RelativeLayout>
