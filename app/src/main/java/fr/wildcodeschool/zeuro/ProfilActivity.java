@@ -1,20 +1,33 @@
 package fr.wildcodeschool.zeuro;
 
-import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.util.Log;
+import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
+import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListener;
+import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
+import com.google.android.gms.common.api.GoogleApiClient;
 
 
 public class ProfilActivity extends AppCompatActivity {
 
     private Button button;
-    private SeekBar appelSeekbar, prixSeekbar, internetSeekBar, smsSeekbar;
+    private CrystalRangeSeekbar appelSeekbar, prixSeekbar, internetSeekBar, smsSeekbar;
     private TextView timeCall, price, net, sms, mms;
     private int max = 5;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,139 +46,142 @@ public class ProfilActivity extends AppCompatActivity {
 
             }
         });
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     public void seekbarAppel() {
-        appelSeekbar = (SeekBar) findViewById(R.id.idSeekAppel);
+        appelSeekbar = (CrystalRangeSeekbar) findViewById(R.id.idSeekAppel);
         timeCall = (TextView) findViewById(R.id.idAppel);
-        appelSeekbar.setProgress(1);
-        appelSeekbar.incrementProgressBy(1);
-        appelSeekbar.setMax(this.max);
 
+        final TextView tvMin = (TextView) findViewById(R.id.Appelmin);
+        final TextView tvMax = (TextView) findViewById(R.id.Appelmax);
 
-        appelSeekbar.setOnSeekBarChangeListener(
-                new SeekBar.OnSeekBarChangeListener() {
-                    int progress_value;
+        // set listener
+        appelSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
+            @Override
+            public void valueChanged(Number minValue, Number maxValue) {
+                tvMin.setText(String.valueOf(minValue));
+                tvMax.setText(String.valueOf(maxValue));
+            }
+        });
 
-                    @Override
-                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        progress_value = progress;
-                        if(progress == max){
-                            timeCall.setText("Durée d'appel : illimité");
-                        }else{
-                            timeCall.setText("Durée d'appel : " + progress + "  h");
-                        }
-                    }
-
-                    @Override
-                    public void onStartTrackingTouch(SeekBar seekBar) {
-
-                    }
-
-                    @Override
-                    public void onStopTrackingTouch(SeekBar seekBar) {
-
-                    }
-                }
-        );
-
+// set final value listener
+        appelSeekbar.setOnRangeSeekbarFinalValueListener(new OnRangeSeekbarFinalValueListener() {
+            @Override
+            public void finalValue(Number minValue, Number maxValue) {
+                Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
+            }
+        });
     }
+
 
     public void seekbarPrix() {
-        prixSeekbar = (SeekBar) findViewById(R.id.idSeekPrix);
+        prixSeekbar = (CrystalRangeSeekbar) findViewById(R.id.idSeekPrix);
         price = (TextView) findViewById(R.id.idPrix);
-        prixSeekbar.setProgress(2);
-        prixSeekbar.setMax(30);
 
-        prixSeekbar.setOnSeekBarChangeListener(
-                new SeekBar.OnSeekBarChangeListener() {
-                    int progress_value;
+        final TextView tvMin = (TextView) findViewById(R.id.Pricemin);
+        final TextView tvMax = (TextView) findViewById(R.id.Pricemax);
 
-                    @Override
-                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        progress_value = progress;
-                        price.setText("Prix : " + progress + "  €");
-                    }
+        // set listener
+        prixSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
+            @Override
+            public void valueChanged(Number minValue, Number maxValue) {
+                tvMin.setText(String.valueOf(minValue));
+                tvMax.setText(String.valueOf(maxValue));
+            }
+        });
 
-                    @Override
-                    public void onStartTrackingTouch(SeekBar seekBar) {
-
-                    }
-
-                    @Override
-                    public void onStopTrackingTouch(SeekBar seekBar) {
-
-                    }
-                }
-        );
-
+// set final value listener
+        prixSeekbar.setOnRangeSeekbarFinalValueListener(new OnRangeSeekbarFinalValueListener() {
+            @Override
+            public void finalValue(Number minValue, Number maxValue) {
+                Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
+            }
+        });
     }
 
+
+
     public void seekbarInternet() {
-        internetSeekBar = (SeekBar) findViewById(R.id.idSeekInternet);
+        internetSeekBar = (CrystalRangeSeekbar) findViewById(R.id.idSeekInternet);
         net = (TextView) findViewById(R.id.idInternet);
-        internetSeekBar.setProgress(50);
-        internetSeekBar.setMax(100);
 
-        internetSeekBar.setOnSeekBarChangeListener(
-                new SeekBar.OnSeekBarChangeListener() {
+        final TextView tvMin = (TextView) findViewById(R.id.Internetmin);
+        final TextView tvMax = (TextView) findViewById(R.id.Internetmax);
 
-                    int progress_value;
+        // set listener
+        internetSeekBar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
+            @Override
+            public void valueChanged(Number minValue, Number maxValue) {
+                tvMin.setText(String.valueOf(minValue));
+                tvMax.setText(String.valueOf(maxValue));
+            }
+        });
 
-                    @Override
-                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
-                        progress_value = progress * 50;
-                        net.setText("internet : " + progress_value + "  mo");
-                        if(progress >= 1000){
-                            net.setText("internet : " + progress_value + "  go");
-                        }
-                    }
-
-                    @Override
-                    public void onStartTrackingTouch(SeekBar seekBar) {
-
-                    }
-
-                    @Override
-                    public void onStopTrackingTouch(SeekBar seekBar) {
-
-                    }
-                }
-        );
-
+// set final value listener
+        internetSeekBar.setOnRangeSeekbarFinalValueListener(new OnRangeSeekbarFinalValueListener() {
+            @Override
+            public void finalValue(Number minValue, Number maxValue) {
+                Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
+            }
+        });
     }
 
     public void seekbarSMS() {
-        smsSeekbar = (SeekBar) findViewById(R.id.idSeekSMS );
+        smsSeekbar = (CrystalRangeSeekbar) findViewById(R.id.idSeekSMS);
         sms = (TextView) findViewById(R.id.idSMS);
-        smsSeekbar.setProgress(100);
-        smsSeekbar.setMax(5);
+        final TextView tvMin = (TextView) findViewById(R.id.Smsmin);
+        final TextView tvMax = (TextView) findViewById(R.id.Smsmax);
 
-        smsSeekbar.setOnSeekBarChangeListener(
-                new SeekBar.OnSeekBarChangeListener() {
-                    int minimumValue = 100;
-                    int progressChanged = minimumValue;
-                    int progress_value;
+        // set listener
+        smsSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
+            @Override
+            public void valueChanged(Number minValue, Number maxValue) {
+                tvMin.setText(String.valueOf(minValue));
+                tvMax.setText(String.valueOf(maxValue));
+            }
+        });
 
-                    @Override
-                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        progress_value = progress * 100;
-                        sms.setText("SMS : " + progress_value + "  ");
-                    }
-
-                    @Override
-                    public void onStartTrackingTouch(SeekBar seekBar) {
-
-                    }
-
-                    @Override
-                    public void onStopTrackingTouch(SeekBar seekBar) {
-
-                    }
-                }
-        );
-
+// set final value listener
+        smsSeekbar.setOnRangeSeekbarFinalValueListener(new OnRangeSeekbarFinalValueListener() {
+            @Override
+            public void finalValue(Number minValue, Number maxValue) {
+                Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
+            }
+        });
     }
 
+    public Action getIndexApiAction() {
+        Thing object = new Thing.Builder()
+                .setName("Profil Page") // TODO: Define a title for the content shown.
+                // TODO: Make sure this auto-generated URL is correct.
+                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
+                .build();
+        return new Action.Builder(Action.TYPE_VIEW)
+                .setObject(object)
+                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
+                .build();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        AppIndex.AppIndexApi.start(client, getIndexApiAction());
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        AppIndex.AppIndexApi.end(client, getIndexApiAction());
+        client.disconnect();
+    }
 }
