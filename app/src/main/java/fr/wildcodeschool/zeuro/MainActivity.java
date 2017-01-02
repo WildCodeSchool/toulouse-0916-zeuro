@@ -1,8 +1,12 @@
 package fr.wildcodeschool.zeuro;
 
 import android.content.Intent;
+import android.preference.PreferenceManager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,11 +15,15 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.ToggleButton;
+import android.widget.CompoundButton;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+
+import butterknife.OnClick;
 
 
 public class MainActivity extends HambMenu {
@@ -25,6 +33,10 @@ public class MainActivity extends HambMenu {
     static protected String FORFAIT = "fr.wildcodeschool.zeuro.FORFAIT";
     final ArrayList<ForfaitObj> listForfait = new ArrayList<>();
     private Button test;
+    private DrawerLayout mDrawer;
+    private Toolbar toolbar;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,6 +91,32 @@ public class MainActivity extends HambMenu {
                         intent.putExtra("MainActivity", listForfait.get(posisition));
                         startActivity(intent);
                     }});
+
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+        ToggleButton hamburger =  (ToggleButton) findViewById(R.id.idHamb);
+
+        // Find our drawer view
+
+        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        hamburger.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    MainActivity.this.mDrawer.openDrawer(Gravity.LEFT);
+                }
+                else{
+                    MainActivity.this.mDrawer.closeDrawer(Gravity.LEFT);
+                }
+            }
+        });
+
+           /* @Override
+            public void onClick(View v) {
+                MainActivity.this.mDrawer.openDrawer(Gravity.LEFT);
+            }*/
 
 
     }
