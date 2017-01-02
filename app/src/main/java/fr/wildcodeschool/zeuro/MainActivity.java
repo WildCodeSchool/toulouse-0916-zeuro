@@ -43,15 +43,6 @@ public class MainActivity extends HambMenu {
         setContentView(R.layout.activity_main);
         mListeView = (ListView) findViewById(R.id.list_itemm);
 
-        test = (Button) findViewById(R.id.testHamb);
-        test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Seekbar.class);// Seekbar remplace HambMenu pour l'essai...
-                startActivity(intent);
-                finishActivity(1);
-            }
-        });
         listForfait.add(new ForfaitObj(R.drawable.logo_orange,0,200,500,5,0,(float) 19.99));
         listForfait.add(new ForfaitObj(R.drawable.logo_bouygues,3,0,0,10,24,(float) 24.99));
         listForfait.add(new ForfaitObj(R.drawable.logo_sfr,5,1000,250,5,12,(float) 20.99));
