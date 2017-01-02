@@ -9,6 +9,6 @@
         android:id="@+id/imgSplash"
         android:layout_width="180dp"
         android:layout_height="180dp"
-        android:src="@drawable/splash"
+        android:src="@drawable/splashz"
         android:layout_centerInParent="true"/>
 </RelativeLayout>
