@@ -1,41 +1,25 @@
 package fr.wildcodeschool.zeuro;
 
-import android.app.Fragment;
-import android.content.Intent;
-import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.view.View;
+import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ImageButton;
-import fr.wildcodeschool.zeuro.fragment.ListFragment;
 
-
-public class MainActivity extends HambMenu
-    implements NavigationView.OnNavigationItemSelectedListener {
-
-    private ImageButton imgButtun;
-    private Button test;
-    private DrawerLayout mDrawer;
-    private Toolbar toolbar;
-
+public class LeekDrawer extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_leek_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -55,16 +39,7 @@ public class MainActivity extends HambMenu
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener((NavigationView.OnNavigationItemSelectedListener) this);
-
-
-        getFragmentManager()
-                .beginTransaction()
-                .add(R.id.idListFragment, new ListFragment())
-                .commit()
-        ;
-
-
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -123,6 +98,4 @@ public class MainActivity extends HambMenu
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
 }

@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_main"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="0dp"
-    android:paddingLeft="0dp"
-    android:paddingRight="0dp"
-    android:paddingTop="0dp"
-    tools:context="fr.wildcodeschool.zeuro.MainActivity">
-    <android.support.v4.widget.DrawerLayout
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/idListFragment"
+        android:layout_marginTop="10dp"/>
+
+    <include
+        android:id="@+id/Toolbarr"
+        layout="@layout/app_bar_leek_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_leek_drawer"
+        app:menu="@menu/activity_leek_drawer_drawer" />
+
+</android.support.v4.widget.DrawerLayout>
+<!--    <android.support.v4.widget.DrawerLayout
 
 
         android:id="@+id/drawer_layout"
@@ -21,14 +42,11 @@
 
 
 
-        <!-- This LinearLayout represents the contents of the screen  -->
 
         <LinearLayout
 
             android:layout_width="match_parent"
-
             android:layout_height="match_parent"
-
             android:orientation="vertical">
 
 
@@ -36,14 +54,11 @@
 
 
 
-            <!-- The main content view where fragments are loaded -->
 
             <FrameLayout
 
                 android:id="@+id/flContent"
-
                 android:layout_width="match_parent"
-
                 android:layout_height="match_parent" />
 
         </LinearLayout>
@@ -54,18 +69,13 @@
         <android.support.design.widget.NavigationView
 
             android:id="@+id/nvView"
-
             android:layout_width="wrap_content"
-
             android:layout_height="match_parent"
-
             android:layout_gravity="start"
-
             android:background="@android:color/white"
-
             app:menu="@menu/menu_drawer" />
 
-    </android.support.v4.widget.DrawerLayout>
+        </android.support.v4.widget.DrawerLayout>
 
 
     <android.support.v7.widget.Toolbar
@@ -116,4 +126,4 @@
     </ImageButton>
 
 
-</RelativeLayout>
+</RelativeLayout>!-->
