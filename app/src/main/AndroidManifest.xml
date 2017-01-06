@@ -17,7 +17,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".ProfilActivity" />
-        <activity android:name=".HambMenu" />
         <activity
             android:name=".DetalsActivity"
             android:theme="@style/AppTheme" />
@@ -29,10 +28,6 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity
-            android:name=".LeekDrawer"
-            android:label="@string/title_activity_leek_drawer"
-            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

@@ -23,7 +23,7 @@ import android.widget.ImageButton;
 import fr.wildcodeschool.zeuro.fragment.ListFragment;
 
 
-public class MainActivity extends HambMenu
+public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
 
     private ImageButton imgButtun;
@@ -58,12 +58,7 @@ public class MainActivity extends HambMenu
         navigationView.setNavigationItemSelectedListener((NavigationView.OnNavigationItemSelectedListener) this);
 
 
-        getFragmentManager()
-                .beginTransaction()
-                .add(R.id.idListFragment, new ListFragment())
-                .commit()
-        ;
-
+        getFragmentManager().beginTransaction().add(R.id.idListFragment, new ListFragment()).commit();
 
     }
 
@@ -107,15 +102,10 @@ public class MainActivity extends HambMenu
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
+
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
 
         }
 

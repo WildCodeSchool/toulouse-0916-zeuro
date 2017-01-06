@@ -45,7 +45,5 @@ public class Custom_Adapt extends ArrayAdapter<ForfaitObj> {
         return rowView;
     }
 
-    public void notif(){
-        this.notifyDataSetChanged();
-    }
+
 }

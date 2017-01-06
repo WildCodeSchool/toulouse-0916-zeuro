@@ -5,7 +5,7 @@
     android:id="@+id/activity_seekbar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fr.wildcodeschool.zeuro.Seekbar">
+    tools:context="fr.wildcodeschool.zeuro.ProfilActivity">
 
     <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
         android:id="@+id/rangeSeekbar1"
@@ -38,5 +38,13 @@
         android:layout_height="30dp"
         android:layout_below="@+id/Textmin1"
         android:id="@+id/Textmax1" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valider"
+        android:id="@+id/idValide"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"/>
 
 </RelativeLayout>

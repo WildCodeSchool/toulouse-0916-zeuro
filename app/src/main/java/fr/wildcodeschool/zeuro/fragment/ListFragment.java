@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -19,23 +20,27 @@ import fr.wildcodeschool.zeuro.Custom_Adapt;
 import fr.wildcodeschool.zeuro.DetalsActivity;
 import fr.wildcodeschool.zeuro.ForfaitObj;
 import fr.wildcodeschool.zeuro.MainActivity;
+import fr.wildcodeschool.zeuro.ProfilActivity;
 import fr.wildcodeschool.zeuro.R;
 
+import static android.R.attr.fragment;
 
 
 public class ListFragment extends Fragment {
 
     private ListView mListeView;
     final ArrayList<ForfaitObj> listForfait = new ArrayList<>();
-
+    Button recherche;
 
     public ListFragment () {
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_list, container, false);
+
         listForfait.add(new ForfaitObj(R.drawable.logo_orange,0,200,500,5,0,(float) 19.99));
         listForfait.add(new ForfaitObj(R.drawable.logo_bouygues,3,0,0,10,24,(float) 24.99));
         listForfait.add(new ForfaitObj(R.drawable.logo_sfr,5,1000,250,5,12,(float) 20.99));
@@ -54,6 +59,8 @@ public class ListFragment extends Fragment {
             }
         });
         return view;
+
     }
+
 
 }
