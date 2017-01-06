@@ -12,29 +12,20 @@
     tools:context="fr.wildcodeschool.zeuro.ProfilActivity">
 
     <Button
-        android:background="@drawable/btnok"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/linearLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="41dp"
-        android:id="@+id/button2" />
-
-    <Button
         android:background="@drawable/btnreturn"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/button3" />
+        android:id="@+id/buttonret" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="350dp"
         android:orientation="vertical"
         android:layout_marginTop="34dp"
         android:id="@+id/linearLayout"
-        android:layout_below="@+id/button3"
+        android:layout_below="@+id/buttonret"
         android:layout_alignParentStart="true">
 
 
@@ -168,6 +159,15 @@
             android:id="@+id/Smsmax" />
 
     </LinearLayout>
+
+    <Button
+        android:background="@drawable/btnok"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/buttonvalidate"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="27dp" />
 
 
 </RelativeLayout>

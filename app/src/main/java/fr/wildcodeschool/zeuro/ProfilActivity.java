@@ -1,5 +1,6 @@
 package fr.wildcodeschool.zeuro;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -39,8 +40,8 @@ public class ProfilActivity extends AppCompatActivity {
         seekbarInternet();
         seekbarSMS();
 
-        button2 = (Button)findViewById(R.id.button3);
-        button = (Button) findViewById(R.id.button2);
+        button2 = (Button)findViewById(R.id.buttonret);
+        button = (Button) findViewById(R.id.buttonvalidate);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +53,8 @@ public class ProfilActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(ProfilActivity.this, MainActivity.class);
+                        startActivity(intent);
             }
         });
         // ATTENTION: This was auto-generated to implement the App Indexing API.
