@@ -17,11 +17,11 @@
         android:orientation="horizontal">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/idReturn"
-            android:layout_marginTop="15dp"
-            android:text="Retour"/>
+            android:background="@drawable/btnreturn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/idReturn" />
+
 
         <ImageView
             android:layout_width="wrap_content"

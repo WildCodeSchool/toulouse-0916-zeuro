@@ -49,7 +49,7 @@ public class MainActivity extends HambMenu {
         listForfait.add(new ForfaitObj(R.drawable.logo_free,6,100,0,3,0,(float) 14.99));
         listForfait.add(new ForfaitObj(R.drawable.logo_orange,1,600,100,1,24,(float) 9.99));
         result = (Button) findViewById(R.id.rechercheButton);
-        imgButtun = (ImageButton) findViewById(R.id.profile);
+        imgButtun = (ImageButton) findViewById(R.id.profil);
         imgButtun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
