@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-class Custom_Adapt extends ArrayAdapter<ForfaitObj> {
+public class Custom_Adapt extends ArrayAdapter<ForfaitObj> {
     private final Activity context;
     private final ArrayList<ForfaitObj> listForfait;
 
@@ -45,7 +45,5 @@ class Custom_Adapt extends ArrayAdapter<ForfaitObj> {
         return rowView;
     }
 
-    public void notif(){
-        this.notifyDataSetChanged();
-    }
+
 }

@@ -1,5 +1,6 @@
 package fr.wildcodeschool.zeuro;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,17 +39,16 @@ public class ProfilActivity extends AppCompatActivity {
         seekbarInternet();
         seekbarSMS();
 
-        button = (Button) findViewById(R.id.button2);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(ProfilActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
     }
 
     public void seekbarAppel() {
