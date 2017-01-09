@@ -9,20 +9,17 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_marginTop="60dp">
+
         <Button
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:background="@drawable/custom_round"
+            android:background="@drawable/flecheshautbas"
             android:layout_gravity="center_horizontal"
-            android:drawableTop="@drawable/recherche"
-            android:drawablePadding="-15sp"
-
-            />
+            android:drawablePadding="-15sp"/>
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/list_itemm"
-        />
+        android:id="@+id/list_itemm"/>
 
 
     </LinearLayout>

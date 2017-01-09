@@ -20,6 +20,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 public class ProfilActivity extends AppCompatActivity {
 
+    private Button button2;
     private Button button;
     private CrystalRangeSeekbar appelSeekbar, prixSeekbar, internetSeekBar, smsSeekbar;
     private TextView timeCall, price, net, sms, mms;
@@ -39,16 +40,26 @@ public class ProfilActivity extends AppCompatActivity {
         seekbarInternet();
         seekbarSMS();
 
+        button2 = (Button)findViewById(R.id.buttonret);
+        button = (Button) findViewById(R.id.buttonvalidate);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ProfilActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+
             }
         });
 
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfilActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     public void seekbarAppel() {
