@@ -1,6 +1,7 @@
 package fr.wildcodeschool.zeuro;
 
 import android.app.Activity;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +11,12 @@ import android.widget.TextView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Custom_Adapt extends ArrayAdapter<ForfaitObj> {
     private final Activity context;
     private final ArrayList<ForfaitObj> listForfait;
-
+    private ProfilActivity profileActivity;
 
     public Custom_Adapt(Activity context, ArrayList<ForfaitObj> listForfait) {
         super(context, R.layout.list, listForfait);
@@ -27,23 +29,54 @@ public class Custom_Adapt extends ArrayAdapter<ForfaitObj> {
         View rowView = inflater.inflate(R.layout.list, parent, false );
 
         ForfaitObj m = getItem(posisition);
-        TextView ptiText = (TextView) rowView.findViewById(R.id.internet);
-        ImageView element = (ImageView) rowView.findViewById(R.id.icon);
-        TextView apelle = (TextView) rowView.findViewById(R.id.apelle);
-        TextView prix   = (TextView) rowView.findViewById(R.id.prix);
-        if(m.getApelle() == 0){
-            apelle.setText("Illimité");
-        }
-        else if(m.getApelle() != 0){
-            apelle.setText(m.getApelle().toString() + " H");
-        }
+        profileActivity = new ProfilActivity();
+        Float ApelleMin = (Float) profileActivity.hashMapReturn().get("ApelleMin");
+        Float ApelleMax = (Float) profileActivity.hashMapReturn().get("ApelleMax");
+        Float PrixMin = (Float) profileActivity.hashMapReturn().get("PrixMin");
+        Float PrixMax = (Float) profileActivity.hashMapReturn().get("PrixMax");
+        Float DataMin = (Float) profileActivity.hashMapReturn().get("DataMin");
+        Float DataMax = (Float) profileActivity.hashMapReturn().get("DataMax");
+        Float SmsMin = (Float) profileActivity.hashMapReturn().get("SmsMin");
+        Float SmsMax = (Float) profileActivity.hashMapReturn().get("SmsMax");
 
-        prix.setText(m.getPrix().toString() + " €");
-        ptiText.setText(m.getInternet().toString() + " Go");
-        element.setImageResource(m.getImgoperateur());
+            if(ApelleMin == null|| ApelleMax == null|| PrixMin == null|| PrixMax == null|| DataMin == null|| DataMax == null|| SmsMin == null|| SmsMax == null){
+                    TextView ptiText = (TextView) rowView.findViewById(R.id.internet);
+                    ImageView element = (ImageView) rowView.findViewById(R.id.icon);
+                    TextView apelle = (TextView) rowView.findViewById(R.id.apelle);
+                    TextView prix   = (TextView) rowView.findViewById(R.id.prix);
+                    if(m.getApelle() == 0){
+                        apelle.setText("Illimité");
+                    }
+                    else if(m.getApelle() != 0){
+                        apelle.setText(m.getApelle().toString() + " H");
+                    }
 
-        return rowView;
+                    prix.setText(m.getPrix().toString() + " €");
+                    ptiText.setText(m.getInternet().toString() + " Go");
+                    element.setImageResource(m.getImgoperateur());
+                return rowView;
+                }
+            else if (ApelleMin <= m.getApelle() && ApelleMax >= m.getApelle() && PrixMin <= m.getPrix() && PrixMax >= m.getPrix() && DataMin <= m.getInternet() && DataMax >= m.getInternet() && SmsMin <= m.getSms() && SmsMax >= m.getSms()){
+                TextView ptiText = (TextView) rowView.findViewById(R.id.internet);
+                ImageView element = (ImageView) rowView.findViewById(R.id.icon);
+                TextView apelle = (TextView) rowView.findViewById(R.id.apelle);
+                TextView prix   = (TextView) rowView.findViewById(R.id.prix);
+                if(m.getApelle() == 0){
+                    apelle.setText("Illimité");
+                }
+                else if(m.getApelle() != 0){
+                    apelle.setText(m.getApelle().toString() + " H");
+                }
+
+                prix.setText(m.getPrix().toString() + " €");
+                ptiText.setText(m.getInternet().toString() + " Go");
+                element.setImageResource(m.getImgoperateur());
+                return rowView;
+            }
+        return  rowView;
+
     }
 
-
 }
+
+

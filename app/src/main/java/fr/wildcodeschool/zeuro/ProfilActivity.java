@@ -17,18 +17,22 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.HashMap;
+
 
 public class ProfilActivity extends AppCompatActivity {
 
-    private Button button;
     private CrystalRangeSeekbar appelSeekbar, prixSeekbar, internetSeekBar, smsSeekbar;
     private TextView timeCall, price, net, sms, mms;
     private int max = 5;
+    private Button sendData;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
+    public static HashMap<String, Float> dataFilter = new HashMap<>();
     private GoogleApiClient client;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +42,8 @@ public class ProfilActivity extends AppCompatActivity {
         seekbarPrix();
         seekbarInternet();
         seekbarSMS();
-
-
-        button.setOnClickListener(new View.OnClickListener() {
+        sendData = (Button) findViewById(R.id.button2);
+        sendData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ProfilActivity.this, MainActivity.class);
@@ -64,6 +67,7 @@ public class ProfilActivity extends AppCompatActivity {
             public void valueChanged(Number minValue, Number maxValue) {
                 tvMin.setText(String.valueOf(minValue));
                 tvMax.setText(String.valueOf(maxValue));
+
             }
         });
 
@@ -72,6 +76,8 @@ public class ProfilActivity extends AppCompatActivity {
             @Override
             public void finalValue(Number minValue, Number maxValue) {
                 Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
+                dataFilter.put("ApellMin", minValue.floatValue());
+                dataFilter.put("ApelleMax", maxValue.floatValue());
             }
         });
     }
@@ -90,6 +96,7 @@ public class ProfilActivity extends AppCompatActivity {
             public void valueChanged(Number minValue, Number maxValue) {
                 tvMin.setText(String.valueOf(minValue));
                 tvMax.setText(String.valueOf(maxValue));
+
             }
         });
 
@@ -98,10 +105,11 @@ public class ProfilActivity extends AppCompatActivity {
             @Override
             public void finalValue(Number minValue, Number maxValue) {
                 Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
+                dataFilter.put("PrixMin", minValue.floatValue());
+                dataFilter.put("PrixMax", maxValue.floatValue());
             }
         });
     }
-
 
 
     public void seekbarInternet() {
@@ -117,6 +125,7 @@ public class ProfilActivity extends AppCompatActivity {
             public void valueChanged(Number minValue, Number maxValue) {
                 tvMin.setText(String.valueOf(minValue));
                 tvMax.setText(String.valueOf(maxValue));
+
             }
         });
 
@@ -125,6 +134,8 @@ public class ProfilActivity extends AppCompatActivity {
             @Override
             public void finalValue(Number minValue, Number maxValue) {
                 Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
+                dataFilter.put("DataMin", minValue.floatValue());
+                dataFilter.put("DataMax", maxValue.floatValue());
             }
         });
     }
@@ -141,6 +152,7 @@ public class ProfilActivity extends AppCompatActivity {
             public void valueChanged(Number minValue, Number maxValue) {
                 tvMin.setText(String.valueOf(minValue));
                 tvMax.setText(String.valueOf(maxValue));
+
             }
         });
 
@@ -149,39 +161,14 @@ public class ProfilActivity extends AppCompatActivity {
             @Override
             public void finalValue(Number minValue, Number maxValue) {
                 Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
+                dataFilter.put("SmsMin", minValue.floatValue());
+                dataFilter.put("SmsMax", maxValue.floatValue());
             }
         });
     }
-
-    public Action getIndexApiAction() {
-        Thing object = new Thing.Builder()
-                .setName("Profil Page") // TODO: Define a title for the content shown.
-                // TODO: Make sure this auto-generated URL is correct.
-                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
-                .build();
-        return new Action.Builder(Action.TYPE_VIEW)
-                .setObject(object)
-                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
-                .build();
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.connect();
-        AppIndex.AppIndexApi.start(client, getIndexApiAction());
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        AppIndex.AppIndexApi.end(client, getIndexApiAction());
-        client.disconnect();
+    public HashMap hashMapReturn(){
+        return dataFilter;
     }
 }
+
+
