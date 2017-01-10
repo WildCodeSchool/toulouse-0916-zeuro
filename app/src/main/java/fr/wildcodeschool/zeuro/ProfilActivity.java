@@ -67,7 +67,6 @@ public class ProfilActivity extends AppCompatActivity {
             public void valueChanged(Number minValue, Number maxValue) {
                 tvMin.setText(String.valueOf(minValue));
                 tvMax.setText(String.valueOf(maxValue));
-
             }
         });
 
@@ -76,7 +75,7 @@ public class ProfilActivity extends AppCompatActivity {
             @Override
             public void finalValue(Number minValue, Number maxValue) {
                 Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
-                dataFilter.put("ApellMin", minValue.floatValue());
+                dataFilter.put("ApelleMin", minValue.floatValue());
                 dataFilter.put("ApelleMax", maxValue.floatValue());
             }
         });
@@ -96,11 +95,10 @@ public class ProfilActivity extends AppCompatActivity {
             public void valueChanged(Number minValue, Number maxValue) {
                 tvMin.setText(String.valueOf(minValue));
                 tvMax.setText(String.valueOf(maxValue));
-
             }
         });
 
-// set final value listener
+        // set final value listener
         prixSeekbar.setOnRangeSeekbarFinalValueListener(new OnRangeSeekbarFinalValueListener() {
             @Override
             public void finalValue(Number minValue, Number maxValue) {

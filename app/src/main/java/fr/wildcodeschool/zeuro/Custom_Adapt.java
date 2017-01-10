@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Objects;
 
 public class Custom_Adapt extends ArrayAdapter<ForfaitObj> {
@@ -29,15 +30,15 @@ public class Custom_Adapt extends ArrayAdapter<ForfaitObj> {
         View rowView = inflater.inflate(R.layout.list, parent, false );
 
         ForfaitObj m = getItem(posisition);
-        profileActivity = new ProfilActivity();
-        Float ApelleMin = (Float) profileActivity.hashMapReturn().get("ApelleMin");
-        Float ApelleMax = (Float) profileActivity.hashMapReturn().get("ApelleMax");
-        Float PrixMin = (Float) profileActivity.hashMapReturn().get("PrixMin");
-        Float PrixMax = (Float) profileActivity.hashMapReturn().get("PrixMax");
-        Float DataMin = (Float) profileActivity.hashMapReturn().get("DataMin");
-        Float DataMax = (Float) profileActivity.hashMapReturn().get("DataMax");
-        Float SmsMin = (Float) profileActivity.hashMapReturn().get("SmsMin");
-        Float SmsMax = (Float) profileActivity.hashMapReturn().get("SmsMax");
+        HashMap filters = ((ProfilActivity) context).hashMapReturn();
+        Float ApelleMin = (Float) filters.get("ApelleMin");
+        Float ApelleMax = (Float) filters.get("ApelleMax");
+        Float PrixMin = (Float) filters.get("PrixMin");
+        Float PrixMax = (Float) filters.get("PrixMax");
+        Float DataMin = (Float) filters.get("DataMin");
+        Float DataMax = (Float) filters.get("DataMax");
+        Float SmsMin = (Float) filters.get("SmsMin");
+        Float SmsMax = (Float) filters.get("SmsMax");
 
             if(ApelleMin == null|| ApelleMax == null|| PrixMin == null|| PrixMax == null|| DataMin == null|| DataMax == null|| SmsMin == null|| SmsMax == null){
                     TextView ptiText = (TextView) rowView.findViewById(R.id.internet);
@@ -54,7 +55,7 @@ public class Custom_Adapt extends ArrayAdapter<ForfaitObj> {
                     prix.setText(m.getPrix().toString() + " €");
                     ptiText.setText(m.getInternet().toString() + " Go");
                     element.setImageResource(m.getImgoperateur());
-                return rowView;
+
                 }
             else if (ApelleMin <= m.getApelle() && ApelleMax >= m.getApelle() && PrixMin <= m.getPrix() && PrixMax >= m.getPrix() && DataMin <= m.getInternet() && DataMax >= m.getInternet() && SmsMin <= m.getSms() && SmsMax >= m.getSms()){
                 TextView ptiText = (TextView) rowView.findViewById(R.id.internet);
@@ -71,7 +72,7 @@ public class Custom_Adapt extends ArrayAdapter<ForfaitObj> {
                 prix.setText(m.getPrix().toString() + " €");
                 ptiText.setText(m.getInternet().toString() + " Go");
                 element.setImageResource(m.getImgoperateur());
-                return rowView;
+
             }
         return  rowView;
 
