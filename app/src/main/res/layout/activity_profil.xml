@@ -13,8 +13,8 @@
 
     <Button
         android:background="@drawable/btnreturn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:id="@+id/buttonret" />
@@ -23,25 +23,29 @@
         android:layout_width="match_parent"
         android:layout_height="380dp"
         android:orientation="vertical"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/linearLayout"
         android:layout_below="@+id/buttonret"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/buttonvalidate">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Durée d'appel"
+            android:text="Durée d'appel (H)"
+            android:textSize="15dp"
+            android:textStyle="bold"
             android:id="@+id/idAppel"/>
 
         <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
-            android:layout_width="250dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="300dp"
             android:layout_height="40dp"
             android:id="@+id/idSeekAppel"
             app:corner_radius="10"
-            app:min_value="0"
-            app:max_value="100"
+            app:min_value="1"
+            app:max_value="5"
             app:gap="0"
             app:bar_color="#F7BB88"
             app:bar_highlight_color="#E07416"
@@ -51,30 +55,44 @@
             app:right_thumb_color_pressed="#E07416"
             app:data_type="_integer" />
 
-        <TextView
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="10dp">
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textStyle="bold"
             android:id="@+id/Appelmin" />
 
         <TextView
+            android:layout_marginStart="270dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/Appelmax" />
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:id="@+id/Appelmax" /></RelativeLayout>
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Prix"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:text="Prix(€)"
             android:id="@+id/idPrix"/>
 
         <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
-            android:layout_width="250dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="300dp"
             android:layout_height="40dp"
             android:id="@+id/idSeekPrix"
             app:corner_radius="10"
             app:min_value="0"
-            app:max_value="100"
+            app:max_value="50"
             app:gap="0"
             app:bar_color="#F7BB88"
             app:bar_highlight_color="#E07416"
@@ -84,29 +102,44 @@
             app:right_thumb_color_pressed="#E07416"
             app:data_type="_integer" />
 
-        <TextView
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/Pricemin" />
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:id="@+id/Pricemin" />
+
+            <TextView
+                android:layout_marginStart="275dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:id="@+id/Pricemax" /></RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/Pricemax" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Internet"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:text="Internet(Go)"
             android:id="@+id/idInternet"/>
 
         <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
-            android:layout_width="250dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="300dp"
             android:layout_height="40dp"
             android:id="@+id/idSeekInternet"
             app:corner_radius="10"
             app:min_value="0"
-            app:max_value="100"
+            app:max_value="50"
             app:gap="0"
             app:bar_color="#F7BB88"
             app:bar_highlight_color="#E07416"
@@ -116,29 +149,45 @@
             app:right_thumb_color_pressed="#E07416"
             app:data_type="_integer" />
 
-        <TextView
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/Internetmin" />
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:id="@+id/Internetmin" />
+
+            <TextView
+                android:layout_marginStart="275dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:id="@+id/Internetmax" /></RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/Internetmax" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textStyle="bold"
             android:text="SMS"
             android:id="@+id/idSMS"/>
 
         <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
-            android:layout_width="250dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="300dp"
             android:layout_height="40dp"
             android:id="@+id/idSeekSMS"
             app:corner_radius="10"
-            app:min_value="0"
-            app:max_value="100"
+            app:min_value="50"
+            app:max_value="1000"
+            app:steps="50"
             app:gap="0"
             app:bar_color="#F7BB88"
             app:bar_highlight_color="#E07416"
@@ -148,26 +197,85 @@
             app:right_thumb_color_pressed="#E07416"
             app:data_type="_integer" />
 
-        <TextView
-            android:layout_width="60dp"
-            android:layout_height="30dp"
-            android:id="@+id/Smsmin" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:id="@+id/Smsmin" />
+
+            <TextView
+                android:layout_marginStart="275dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:id="@+id/Smsmax" /></RelativeLayout>
 
         <TextView
-            android:layout_width="60dp"
-            android:layout_height="30dp"
-            android:id="@+id/Smsmax" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:text="MMS"
+            android:id="@+id/idMMS"/>
+
+        <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
+            android:layout_marginLeft="10dp"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:id="@+id/idSeekMMS"
+            app:corner_radius="10"
+            app:min_value="50"
+            app:max_value="1000"
+            app:gap="0"
+            app:steps="50"
+            app:bar_color="#F7BB88"
+            app:bar_highlight_color="#E07416"
+            app:left_thumb_color="#BC340C"
+            app:right_thumb_color="#BC340C"
+            app:left_thumb_color_pressed="#E07416"
+            app:right_thumb_color_pressed="#E07416"
+            app:data_type="_integer" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:id="@+id/Mmsmin" />
+
+            <TextView
+                android:layout_marginStart="275dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:id="@+id/Mmsmax" /></RelativeLayout>
 
     </LinearLayout>
 
     <Button
-        android:background="@drawable/btnok"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:background="@drawable/checkmark"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:id="@+id/buttonvalidate"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp" />
+        android:layout_alignParentBottom="true" />
 
 
 </RelativeLayout>

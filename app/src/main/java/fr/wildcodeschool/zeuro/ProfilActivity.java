@@ -22,7 +22,7 @@ public class ProfilActivity extends AppCompatActivity {
 
     private Button button2;
     private Button button;
-    private CrystalRangeSeekbar appelSeekbar, prixSeekbar, internetSeekBar, smsSeekbar;
+    private CrystalRangeSeekbar appelSeekbar, prixSeekbar, internetSeekBar, smsSeekbar, mmsSeekbar;
     private TextView timeCall, price, net, sms, mms;
     private int max = 5;
     /**
@@ -39,6 +39,7 @@ public class ProfilActivity extends AppCompatActivity {
         seekbarPrix();
         seekbarInternet();
         seekbarSMS();
+        seekbarMMS();
 
         button2 = (Button)findViewById(R.id.buttonret);
         button = (Button) findViewById(R.id.buttonvalidate);
@@ -66,8 +67,10 @@ public class ProfilActivity extends AppCompatActivity {
         appelSeekbar = (CrystalRangeSeekbar) findViewById(R.id.idSeekAppel);
         timeCall = (TextView) findViewById(R.id.idAppel);
 
+
         final TextView tvMin = (TextView) findViewById(R.id.Appelmin);
         final TextView tvMax = (TextView) findViewById(R.id.Appelmax);
+
 
         // set listener
         appelSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
@@ -75,6 +78,7 @@ public class ProfilActivity extends AppCompatActivity {
             public void valueChanged(Number minValue, Number maxValue) {
                 tvMin.setText(String.valueOf(minValue));
                 tvMax.setText(String.valueOf(maxValue));
+                if (maxValue.intValue()==5)tvMax.setText("illimité");
             }
         });
 
@@ -101,6 +105,7 @@ public class ProfilActivity extends AppCompatActivity {
             public void valueChanged(Number minValue, Number maxValue) {
                 tvMin.setText(String.valueOf(minValue));
                 tvMax.setText(String.valueOf(maxValue));
+                if (maxValue.intValue()==50)tvMax.setText("50 +");
             }
         });
 
@@ -128,6 +133,7 @@ public class ProfilActivity extends AppCompatActivity {
             public void valueChanged(Number minValue, Number maxValue) {
                 tvMin.setText(String.valueOf(minValue));
                 tvMax.setText(String.valueOf(maxValue));
+                if (maxValue.intValue()==50)tvMax.setText("50 +");
             }
         });
 
@@ -152,11 +158,37 @@ public class ProfilActivity extends AppCompatActivity {
             public void valueChanged(Number minValue, Number maxValue) {
                 tvMin.setText(String.valueOf(minValue));
                 tvMax.setText(String.valueOf(maxValue));
+                if (maxValue.intValue()==1000)tvMax.setText("illimité");
             }
         });
 
 // set final value listener
         smsSeekbar.setOnRangeSeekbarFinalValueListener(new OnRangeSeekbarFinalValueListener() {
+            @Override
+            public void finalValue(Number minValue, Number maxValue) {
+                Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
+            }
+        });
+    }
+
+    public void seekbarMMS() {
+        mmsSeekbar = (CrystalRangeSeekbar) findViewById(R.id.idSeekMMS);
+        mms = (TextView) findViewById(R.id.idMMS);
+        final TextView tvMin = (TextView) findViewById(R.id.Mmsmin);
+        final TextView tvMax = (TextView) findViewById(R.id.Mmsmax);
+
+        // set listener
+        mmsSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
+            @Override
+            public void valueChanged(Number minValue, Number maxValue) {
+                tvMin.setText(String.valueOf(minValue));
+                tvMax.setText(String.valueOf(maxValue));
+                if (maxValue.intValue()==1000)tvMax.setText("illimité");
+            }
+        });
+
+// set final value listener
+        mmsSeekbar.setOnRangeSeekbarFinalValueListener(new OnRangeSeekbarFinalValueListener() {
             @Override
             public void finalValue(Number minValue, Number maxValue) {
                 Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));

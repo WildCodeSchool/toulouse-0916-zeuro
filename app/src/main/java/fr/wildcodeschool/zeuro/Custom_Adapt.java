@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Custom_Adapt extends ArrayAdapter<ForfaitObj> {
@@ -29,7 +28,7 @@ public class Custom_Adapt extends ArrayAdapter<ForfaitObj> {
         ForfaitObj m = getItem(posisition);
         TextView ptiText = (TextView) rowView.findViewById(R.id.internet);
         ImageView element = (ImageView) rowView.findViewById(R.id.icon);
-        TextView apelle = (TextView) rowView.findViewById(R.id.apelle);
+        TextView apelle = (TextView) rowView.findViewById(R.id.appel);
         TextView prix   = (TextView) rowView.findViewById(R.id.prix);
         if(m.getApelle() == 0){
             apelle.setText("Illimité");
