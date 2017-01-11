@@ -15,6 +15,7 @@
         <Button
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:id="@+id/search"
             android:background="@drawable/arrow"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"

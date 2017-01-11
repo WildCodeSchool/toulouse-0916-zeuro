@@ -26,11 +26,11 @@ import fr.wildcodeschool.zeuro.R;
 import static android.R.attr.fragment;
 
 
-public class ListFragment extends Fragment {
-
+public class ListFragment extends Fragment  {
+    private ProfilActivity lol;
     private ListView mListeView;
     final ArrayList<ForfaitObj> listForfait = new ArrayList<>();
-    Button recherche;
+    private Button recherche;
 
     public ListFragment () {
 
@@ -40,7 +40,14 @@ public class ListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_list, container, false);
-
+        recherche = (Button) view.findViewById(R.id.search);
+        recherche.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ProfilActivity.class);
+                startActivity(intent);
+            }
+        });
         listForfait.add(new ForfaitObj(R.drawable.logo_orange,0,200,500,5,0,(float) 19.99));
         listForfait.add(new ForfaitObj(R.drawable.logo_bouygues,3,0,0,10,24,(float) 24.99));
         listForfait.add(new ForfaitObj(R.drawable.logo_sfr,5,1000,250,5,12,(float) 20.99));
@@ -49,6 +56,7 @@ public class ListFragment extends Fragment {
         mListeView = (ListView) view.findViewById(R.id.list_itemm);
         final Custom_Adapt listAdap = new Custom_Adapt(getActivity(), listForfait);
         mListeView.setAdapter(listAdap);
+
 
         mListeView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -59,8 +67,5 @@ public class ListFragment extends Fragment {
             }
         });
         return view;
-
     }
-
-
 }

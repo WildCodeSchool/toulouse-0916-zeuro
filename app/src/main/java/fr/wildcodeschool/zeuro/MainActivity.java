@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-       //
+
 
         Button profilbtn = (Button) findViewById(R.id.buttonProfil);
         profilbtn.setOnClickListener(new View.OnClickListener() {
