@@ -63,9 +63,7 @@ public class MainActivity extends AppCompatActivity
         lol = new ProfilActivity();
 
         getFragmentManager().beginTransaction().add(R.id.idListFragment, new ListFragment()).commit();
-        if(lol.hashMapReturn().get("SmsMax") != null){
-            Log.d("test HashMap : ", lol.hashMapReturn().get("SmsMax").toString());
-        }
+
 
 
 

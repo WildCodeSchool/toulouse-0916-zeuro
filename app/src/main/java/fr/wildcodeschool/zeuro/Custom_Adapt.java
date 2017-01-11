@@ -29,53 +29,32 @@ public class Custom_Adapt extends ArrayAdapter<ForfaitObj> {
         LayoutInflater inflater = context.getLayoutInflater();
         View rowView = inflater.inflate(R.layout.list, parent, false );
 
+
+        int appelMin = FilterSingleton.getInstance().getAppelMin();
+        int appelMax = FilterSingleton.getInstance().getAppelMax();
+        float prixMin = FilterSingleton.getInstance().getPrixMin();
+        float prixMax = FilterSingleton.getInstance().getPrixMax();
+        int internetMin = FilterSingleton.getInstance().getInternetMin();
+        int internetMax = FilterSingleton.getInstance().getInternetMax();
         ForfaitObj m = getItem(posisition);
-        HashMap filters = ((ProfilActivity) context).hashMapReturn();
-        Float ApelleMin = (Float) filters.get("ApelleMin");
-        Float ApelleMax = (Float) filters.get("ApelleMax");
-        Float PrixMin = (Float) filters.get("PrixMin");
-        Float PrixMax = (Float) filters.get("PrixMax");
-        Float DataMin = (Float) filters.get("DataMin");
-        Float DataMax = (Float) filters.get("DataMax");
-        Float SmsMin = (Float) filters.get("SmsMin");
-        Float SmsMax = (Float) filters.get("SmsMax");
 
-            if(ApelleMin == null|| ApelleMax == null|| PrixMin == null|| PrixMax == null|| DataMin == null|| DataMax == null|| SmsMin == null|| SmsMax == null){
-                    TextView ptiText = (TextView) rowView.findViewById(R.id.internet);
-                    ImageView element = (ImageView) rowView.findViewById(R.id.icon);
-                    TextView apelle = (TextView) rowView.findViewById(R.id.apelle);
-                    TextView prix   = (TextView) rowView.findViewById(R.id.prix);
-                    if(m.getApelle() == 0){
-                        apelle.setText("Illimité");
-                    }
-                    else if(m.getApelle() != 0){
-                        apelle.setText(m.getApelle().toString() + " H");
-                    }
-
-                    prix.setText(m.getPrix().toString() + " €");
-                    ptiText.setText(m.getInternet().toString() + " Go");
-                    element.setImageResource(m.getImgoperateur());
-
-                }
-            else if (ApelleMin <= m.getApelle() && ApelleMax >= m.getApelle() && PrixMin <= m.getPrix() && PrixMax >= m.getPrix() && DataMin <= m.getInternet() && DataMax >= m.getInternet() && SmsMin <= m.getSms() && SmsMax >= m.getSms()){
-                TextView ptiText = (TextView) rowView.findViewById(R.id.internet);
-                ImageView element = (ImageView) rowView.findViewById(R.id.icon);
-                TextView apelle = (TextView) rowView.findViewById(R.id.apelle);
-                TextView prix   = (TextView) rowView.findViewById(R.id.prix);
-                if(m.getApelle() == 0){
-                    apelle.setText("Illimité");
-                }
-                else if(m.getApelle() != 0){
-                    apelle.setText(m.getApelle().toString() + " H");
-                }
-
-                prix.setText(m.getPrix().toString() + " €");
-                ptiText.setText(m.getInternet().toString() + " Go");
-                element.setImageResource(m.getImgoperateur());
-
+        if((appelMin <= m.getApelle() || appelMax >= m.getApelle()) && (prixMin <= m.getPrix() || prixMax >= m.getPrix()) && (internetMin <= m.getInternet() || internetMax >= m.getInternet())){
+            TextView ptiText = (TextView) rowView.findViewById(R.id.internet);
+            ImageView element = (ImageView) rowView.findViewById(R.id.icon);
+            TextView apelle = (TextView) rowView.findViewById(R.id.apelle);
+            TextView prix   = (TextView) rowView.findViewById(R.id.prix);
+            if(m.getApelle() == 0){
+                apelle.setText("Illimité");
             }
-        return  rowView;
+            else if(m.getApelle() != 0){
+                apelle.setText(m.getApelle().toString() + " H");
+            }
 
+            prix.setText(m.getPrix().toString() + " €");
+            ptiText.setText(m.getInternet().toString() + " Go");
+            element.setImageResource(m.getImgoperateur());
+        }
+        return  rowView;
     }
 
 }

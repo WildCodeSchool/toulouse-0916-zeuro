@@ -75,8 +75,8 @@ public class ProfilActivity extends AppCompatActivity {
             @Override
             public void finalValue(Number minValue, Number maxValue) {
                 Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
-                dataFilter.put("ApelleMin", minValue.floatValue());
-                dataFilter.put("ApelleMax", maxValue.floatValue());
+                FilterSingleton.getInstance().setAppelMin(minValue.intValue());
+                FilterSingleton.getInstance().setAppelMax(maxValue.intValue());
             }
         });
     }
@@ -103,8 +103,8 @@ public class ProfilActivity extends AppCompatActivity {
             @Override
             public void finalValue(Number minValue, Number maxValue) {
                 Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
-                dataFilter.put("PrixMin", minValue.floatValue());
-                dataFilter.put("PrixMax", maxValue.floatValue());
+                FilterSingleton.getInstance().setPrixMin(minValue.intValue());
+                FilterSingleton.getInstance().setAppelMax(maxValue.intValue());
             }
         });
     }
@@ -132,8 +132,8 @@ public class ProfilActivity extends AppCompatActivity {
             @Override
             public void finalValue(Number minValue, Number maxValue) {
                 Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
-                dataFilter.put("DataMin", minValue.floatValue());
-                dataFilter.put("DataMax", maxValue.floatValue());
+                FilterSingleton.getInstance().setInternetMin(minValue.intValue());
+                FilterSingleton.getInstance().setInternetMax(maxValue.intValue());
             }
         });
     }
@@ -159,13 +159,10 @@ public class ProfilActivity extends AppCompatActivity {
             @Override
             public void finalValue(Number minValue, Number maxValue) {
                 Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
-                dataFilter.put("SmsMin", minValue.floatValue());
-                dataFilter.put("SmsMax", maxValue.floatValue());
+                FilterSingleton.getInstance().setMmsMin(minValue.intValue());
+                FilterSingleton.getInstance().setMmsMax(maxValue.intValue());
             }
         });
-    }
-    public HashMap hashMapReturn(){
-        return dataFilter;
     }
 }
 
