@@ -6,12 +6,19 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.zip.Inflater;
@@ -27,10 +34,16 @@ import static android.R.attr.fragment;
 
 
 public class ListFragment extends Fragment  {
+    private final String TAG = "result";
     private ProfilActivity lol;
     private ListView mListeView;
     final ArrayList<ForfaitObj> listForfait = new ArrayList<>();
     private Button recherche;
+
+    // Write a message to the database
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("message");
+
 
     public ListFragment () {
 
@@ -40,7 +53,7 @@ public class ListFragment extends Fragment  {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_list, container, false);
-        recherche = (Button) view.findViewById(R.id.search);
+      /*  recherche = (Button) view.findViewById(R.id.search);
         recherche.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,6 +61,7 @@ public class ListFragment extends Fragment  {
                 startActivity(intent);
             }
         });
+        */
         listForfait.add(new ForfaitObj(R.drawable.logo_orange,0,200,500,5,0,(float) 19.99));
         listForfait.add(new ForfaitObj(R.drawable.logo_bouygues,3,0,0,10,24,(float) 24.99));
         listForfait.add(new ForfaitObj(R.drawable.logo_sfr,5,1000,250,5,12,(float) 20.99));
@@ -57,6 +71,24 @@ public class ListFragment extends Fragment  {
         final Custom_Adapt listAdap = new Custom_Adapt(getActivity(), listForfait);
         mListeView.setAdapter(listAdap);
 
+        myRef.setValue("hello");
+
+        // Read from the database
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                String value = dataSnapshot.getValue(String.class);
+                Log.d(TAG, "Value is: " + value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
 
         mListeView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

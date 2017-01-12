@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "818904877650",
+    "firebase_url": "https://zeuro-58296.firebaseio.com",
+    "project_id": "zeuro-58296",
+    "storage_bucket": "zeuro-58296.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818904877650:android:ea2ad6abc74fde66",
+        "android_client_info": {
+          "package_name": "fr.wildcodeschool.zeuro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "818904877650-7nfnqt999l7n8rgmsmd0u06e68ct5h1v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjww1woAEyjfMLtgmArTfXjO8nVX1WZD8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
