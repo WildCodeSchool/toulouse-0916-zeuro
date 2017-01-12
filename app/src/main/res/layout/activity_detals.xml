@@ -18,8 +18,8 @@
 
         <Button
             android:background="@drawable/btnreturn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:id="@+id/idReturn" />
 
 
@@ -33,15 +33,17 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="50dp">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:id="@+id/Price"
-            android:text="Prix:"/>
+            android:text="Prix (€) :"
+            android:textStyle="bold"
+            android:textSize="17dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -53,108 +55,126 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="30dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:id="@+id/idAppel"
-            android:text="Durée d'appel:"/>
+            android:text="Durée d'appel (H) :"
+            android:textStyle="bold"
+            android:textSize="17dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/idHeure"
-            android:layout_marginLeft="30dp"/>
+            android:layout_marginLeft="50dp"/>
 
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="30dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:id="@+id/idSMS"
-            android:text="SMS:" />
+            android:text="Sms :"
+            android:textStyle="bold"
+            android:textSize="17dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/idNumberSMS"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="50dp"/>
 
 
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="30dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="MMS:"
-            android:id="@+id/idMMS"/>
+            android:text="Mms :"
+            android:id="@+id/idMMS"
+            android:textStyle="bold"
+            android:textSize="17dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/resultMMS"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="50dp"/>
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/idInternet"
-            android:text="Internet:"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/montantInternet"
-            android:layout_marginLeft="30dp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="30dp">
 
         <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/idInternet"
+            android:textStyle="bold"
+            android:textSize="17dp"
+            android:text="Internet (Go) :"/>
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/montantInternet"
+            android:layout_marginLeft="50dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
             android:id="@+id/idEngagement"
-            android:text="Engagement:"/>
+            android:textStyle="bold"
+            android:textSize="17dp"
+            android:text="Engagement :"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/Result"
-            android:layout_marginLeft="30dp"/>
+            android:layout_marginLeft="50dp"/>
 
 
     </LinearLayout>
+
+    <Button
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:text="Voir Offre"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button3" />
 
 
 </LinearLayout>

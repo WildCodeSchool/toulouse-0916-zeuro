@@ -3,15 +3,30 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
+
         <item
-            android:id="@+id/nav_camera"
-            android:title="Forfaits mobiles" />
+            android:id="@+id/forfaits_menu"
+            android:title="Forfaits Mobiles" />
+
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/assurances_menu"
             android:title="Assurances" />
+
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/banque_menu"
             android:title="Banques" />
+
+
+        <item
+            android:id="@+id/tips_menu"
+            android:title="Contact" />
+
+
+        <item
+            android:id="@+id/aide_menu"
+            android:title="Aide" />
+
+
 
     </group>
 
