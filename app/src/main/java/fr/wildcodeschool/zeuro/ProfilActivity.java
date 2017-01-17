@@ -17,7 +17,10 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+
+import fr.wildcodeschool.zeuro.DBHandler.DBHandler;
 
 
 public class ProfilActivity extends AppCompatActivity {
@@ -25,6 +28,7 @@ public class ProfilActivity extends AppCompatActivity {
     private Button button2;
     private Button button;
     private CrystalRangeSeekbar appelSeekbar, prixSeekbar, internetSeekBar, smsSeekbar, mmsSeekbar;
+    private DBHandler mDBHandler;
     private TextView timeCall, price, net, sms, mms;
     public static HashMap<String, Float> dataFilter = new HashMap<>();
     /**
@@ -37,6 +41,15 @@ public class ProfilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil);
+
+        this.mDBHandler = new DBHandler(this);
+        ArrayList<Integer[]> savelist = mDBHandler.getsavesseekbar();
+
+        //methode pr recuperer le min de 1ere ligne (appel)
+        int a = savelist.get(0)[0];
+
+        //pr changer une valeur l'id ds seekbar
+        this.mDBHandler.setValueMinEtMax(1, 1, 5);
         seekbarAppel();
         seekbarPrix();
         seekbarInternet();
@@ -70,6 +83,8 @@ public class ProfilActivity extends AppCompatActivity {
 
         final TextView tvMin = (TextView) findViewById(R.id.Appelmin);
         final TextView tvMax = (TextView) findViewById(R.id.Appelmax);
+
+
 
 
         // set listener

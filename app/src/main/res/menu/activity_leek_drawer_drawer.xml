@@ -9,8 +9,16 @@
             android:title="Forfaits Mobiles" />
 
         <item
+            android:id="@+id/forfaits_internet"
+            android:title="Forfaits Internet" />
+
+        <item
             android:id="@+id/assurances_menu"
             android:title="Assurances" />
+
+        <item
+            android:id="@+id/energie_menu"
+            android:title="Énergies" />
 
         <item
             android:id="@+id/banque_menu"

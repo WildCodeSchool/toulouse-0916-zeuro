@@ -1,16 +1,19 @@
 package fr.wildcodeschool.zeuro;
 
-/**
- * Created by apprenti on 25/11/16.
- */
+
 import android.os.Parcelable;
 import android.os.Parcelable;
 import java.io.Serializable;
 import java.util.ArrayList;
+
 public class ForfaitObj implements Serializable {
     private Integer  imgoperateur, apelle, sms, mms, internet, engagement;
     private float prix;
-    public ForfaitObj( Integer imgoperateur, Integer apelle, Integer sms, Integer mms, Integer internet, Integer engagement, Float prix){
+
+    public ForfaitObj() {
+    }
+
+    public ForfaitObj(Integer imgoperateur, Integer apelle, Integer sms, Integer mms, Integer internet, Integer engagement, Float prix){
         this.imgoperateur = imgoperateur;
         this.apelle = apelle;
         this.sms = sms;
