@@ -1,9 +1,6 @@
 package fr.wildcodeschool.zeuro.fragment;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.util.Log;
@@ -20,29 +17,34 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import org.w3c.dom.Comment;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 import fr.wildcodeschool.zeuro.Custom_Adapt;
 import fr.wildcodeschool.zeuro.DetalsActivity;
-import fr.wildcodeschool.zeuro.ForfaitObj;
-import fr.wildcodeschool.zeuro.MainActivity;
+import fr.wildcodeschool.zeuro.FilterSingleton;
+import fr.wildcodeschool.zeuro.ForfaitModel;
 import fr.wildcodeschool.zeuro.ProfilActivity;
 import fr.wildcodeschool.zeuro.R;
-
-import static android.R.attr.fragment;
 
 
 public class ListFragment extends Fragment  {
     private final String TAG = "result";
     private ProfilActivity lol;
     private ListView mListeView;
-    private ArrayList<ForfaitObj> listForfait = new ArrayList<>();
+    private ArrayList<ForfaitModel> listForfait = new ArrayList<>();
     private Button recherche;
+    private Number appelmin = FilterSingleton.getInstance().getAppelMin();
+    private Number appelmax = FilterSingleton.getInstance().getAppelMax();
+    private Number prixmin = FilterSingleton.getInstance().getPrixMin();
+    private Number prixmax = FilterSingleton.getInstance().getPrixMax();
+    private Number smsmin = FilterSingleton.getInstance().getSmsMin();
+    private Number smsmax = FilterSingleton.getInstance().getSmsMax();
+    private Number mmsmin = FilterSingleton.getInstance().getMmsMin();
+    private Number mmsmax = FilterSingleton.getInstance().getMmsMax();
+    private Number internetmin = FilterSingleton.getInstance().getInternetMin();
+    private Number internetmax = FilterSingleton.getInstance().getInternetMax();
+
 
     // Write a message to the database
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
@@ -58,15 +60,24 @@ public class ListFragment extends Fragment  {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_list, container, false);
-
+        mListeView = (ListView) view.findViewById(R.id.list_itemm);
         // Read from the database
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
                 Log.d(TAG, "onChildAdded:" + dataSnapshot.getKey());
 
-                ForfaitObj forfait = dataSnapshot.getValue(ForfaitObj.class);
+                ForfaitModel forfait = dataSnapshot.getValue(ForfaitModel.class);
                 listForfait.add(forfait);
+            /*    for (int i = 0; i<listForfait.size(); i++) {
+                    if (listForfait.get(i).getApelle() < appelmin.intValue() || listForfait.get(i).getApelle() > appelmax.intValue() || listForfait.get(i).getPrix() < prixmin.intValue() || listForfait.get(i).getPrix() > prixmax.intValue() || listForfait.get(i).getInternet() < internetmin.intValue() || listForfait.get(i).getInternet() > internetmax.intValue()){
+
+                        listForfait.remove(i);
+                        i--;
+                    }
+                }*/
+                final Custom_Adapt listAdap = new Custom_Adapt(getActivity(), listForfait);
+                mListeView.setAdapter(listAdap);
             }
 
             @Override
@@ -95,17 +106,6 @@ public class ListFragment extends Fragment  {
             }
         });
 
-
-        /*
-        listForfait.add(new ForfaitObj(R.drawable.logo_orange,0,200,500,5,0,(float) 19.99));
-        listForfait.add(new ForfaitObj(R.drawable.logo_bouygues,3,0,0,10,24,(float) 24.99));
-        listForfait.add(new ForfaitObj(R.drawable.logo_sfr,5,1000,250,5,12,(float) 20.99));
-        listForfait.add(new ForfaitObj(R.drawable.logo_free,6,100,0,3,0,(float) 14.99));
-        listForfait.add(new ForfaitObj(R.drawable.logo_orange,1,600,100,1,24,(float) 9.99));
-        */
-        mListeView = (ListView) view.findViewById(R.id.list_itemm);
-        final Custom_Adapt listAdap = new Custom_Adapt(getActivity(), listForfait);
-        mListeView.setAdapter(listAdap);
 
 
 

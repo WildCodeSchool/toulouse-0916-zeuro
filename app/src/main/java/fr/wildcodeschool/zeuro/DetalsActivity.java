@@ -19,7 +19,7 @@ public class DetalsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detals);
-        ForfaitObj aplForfait = (ForfaitObj) getIntent().getSerializableExtra("MainActivity");
+        ForfaitModel aplForfait = (ForfaitModel) getIntent().getSerializableExtra("MainActivity");
         Button Retour = (Button) findViewById(R.id.idReturn);
         Retour.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,7 +29,8 @@ public class DetalsActivity extends AppCompatActivity {
             }
         });
         logo = (ImageView) findViewById(R.id.idLogo);
-        logo.setImageResource(aplForfait.getImgoperateur());
+        logo.setImageResource(aplForfait.setPictureLogo(aplForfait.getImgoperateur()));
+
         montantPrix = (TextView) findViewById(R.id.montant);
         montantPrix.setText(aplForfait.getPrix().toString() + " €");
 
