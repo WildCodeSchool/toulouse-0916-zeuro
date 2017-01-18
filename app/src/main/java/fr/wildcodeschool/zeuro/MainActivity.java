@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import fr.wildcodeschool.zeuro.DBHandler.DBHandler;
 import fr.wildcodeschool.zeuro.fragment.ListFragment;
 
 
@@ -37,6 +38,17 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        DBHandler db = new DBHandler(this);
+        FilterSingleton.getInstance().setAppelMin(db.getsavesseekbar().get(0)[0]);
+        FilterSingleton.getInstance().setAppelMax(db.getsavesseekbar().get(0)[1]);
+        FilterSingleton.getInstance().setPrixMin(db.getsavesseekbar().get(1)[0]);
+        FilterSingleton.getInstance().setPrixMax(db.getsavesseekbar().get(1)[1]);
+        FilterSingleton.getInstance().setInternetMin(db.getsavesseekbar().get(2)[0]);
+        FilterSingleton.getInstance().setInternetMax(db.getsavesseekbar().get(2)[1]);
+        FilterSingleton.getInstance().setSmsMin(db.getsavesseekbar().get(3)[0]);
+        FilterSingleton.getInstance().setSmsMax(db.getsavesseekbar().get(3)[1]);
+        FilterSingleton.getInstance().setMmsMin(db.getsavesseekbar().get(4)[0]);
+        FilterSingleton.getInstance().setMmsMax(db.getsavesseekbar().get(4)[1]);
 
 
         Button profilbtn = (Button) findViewById(R.id.buttonProfil);
