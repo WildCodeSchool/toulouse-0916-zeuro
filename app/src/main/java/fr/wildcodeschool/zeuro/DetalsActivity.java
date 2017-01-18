@@ -1,6 +1,7 @@
 package fr.wildcodeschool.zeuro;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,8 +20,9 @@ public class DetalsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detals);
-        ForfaitModel aplForfait = (ForfaitModel) getIntent().getSerializableExtra("MainActivity");
+        final ForfaitModel aplForfait = (ForfaitModel) getIntent().getSerializableExtra("MainActivity");
         Button Retour = (Button) findViewById(R.id.idReturn);
+        Button buttonlien = (Button) findViewById(R.id.buttonlien);
         Retour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,6 +36,16 @@ public class DetalsActivity extends AppCompatActivity {
         montantPrix = (TextView) findViewById(R.id.montant);
         montantPrix.setText(aplForfait.getPrix() + " €");
 
+        buttonlien.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!aplForfait.getLien().isEmpty()){
+                    Uri adress = Uri.parse(aplForfait.getLien());
+                    Intent intent = new Intent(Intent.ACTION_VIEW, adress);
+                    startActivity(intent);
+                }
+            }
+        });
 
         resultHeure = (TextView) findViewById(R.id.idHeure);
         if(aplForfait.getAppels() <= 0) {
@@ -67,7 +79,7 @@ public class DetalsActivity extends AppCompatActivity {
             int calcul = ((int) aplForfait.getInternet()) / 1000;
             internet.setText(calcul + " Go");
         }
-                periode = (TextView) findViewById(R.id.Result);
+        periode = (TextView) findViewById(R.id.Result);
         if (aplForfait.getEngagement() <= 0){
             periode.setText("Sans engagement");
         }
