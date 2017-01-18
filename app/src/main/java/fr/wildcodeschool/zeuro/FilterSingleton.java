@@ -6,6 +6,7 @@ public class FilterSingleton {
 
     private float prixMin, prixMax;
     private int appelMin, appelMax, smsMin, smsMax, mmsMin, mmsMax, internetMin, internetMax;
+    private boolean isButtonCheck;
 
     private FilterSingleton() {
 
@@ -19,6 +20,14 @@ public class FilterSingleton {
         this.mmsMax = mmsMax;
         this.internetMin = internetMin;
         this.internetMax = internetMax;
+    }
+
+    public boolean isButtonCheck() {
+        return isButtonCheck;
+    }
+
+    public void setButtonCheck(boolean buttonCheck) {
+        isButtonCheck = buttonCheck;
     }
 
     public float getPrixMin() {
@@ -100,6 +109,7 @@ public class FilterSingleton {
     public void setInternetMax(int internetMax) {
         this.internetMax = internetMax;
     }
+
     public static synchronized FilterSingleton getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new FilterSingleton();

@@ -5,6 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,19 +13,9 @@
         android:layout_marginTop="60dp"
         android:weightSum="1">
 
-        <Button
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:id="@+id/search"
-            android:background="@drawable/arrow"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_gravity="center_horizontal"/>
-
         <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp">
-
 
                 <ImageView
                     android:layout_width="20dp"
@@ -41,14 +32,14 @@
                     app:srcCompat="@drawable/phone"
                     android:layout_centerVertical="true"
                     android:layout_toEndOf="@+id/imageView2"
-                    android:layout_marginStart="50dp"
+                    android:layout_marginStart="40dp"
                     android:id="@+id/imageView3" />
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     app:srcCompat="@drawable/arobase"
-                    android:layout_marginStart="50dp"
+                    android:layout_marginStart="40dp"
                     android:id="@+id/imageView4"
                     android:layout_centerVertical="true"
                     android:layout_toEndOf="@+id/imageView3" />

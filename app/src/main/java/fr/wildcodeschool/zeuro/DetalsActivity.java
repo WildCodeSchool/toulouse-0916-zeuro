@@ -11,8 +11,8 @@ import android.widget.TextView;
 public class DetalsActivity extends AppCompatActivity {
 
     private Button Retour;
-    private ImageView logo;
-    private TextView montantPrix, resultHeure, SMS, MMS, internet, periode;
+    private ImageView logo, promo;
+    private TextView montantPrix, resultHeure, SMS, MMS, internet, periode, datefin;
 
 
     @Override
@@ -29,18 +29,18 @@ public class DetalsActivity extends AppCompatActivity {
             }
         });
         logo = (ImageView) findViewById(R.id.idLogo);
-        logo.setImageResource(aplForfait.setPictureLogo(aplForfait.getImgoperateur()));
+        logo.setImageResource(aplForfait.setPictureLogo(aplForfait.getOperateur()));
 
         montantPrix = (TextView) findViewById(R.id.montant);
-        montantPrix.setText(aplForfait.getPrix().toString() + " €");
+        montantPrix.setText(aplForfait.getPrix() + " €");
 
 
         resultHeure = (TextView) findViewById(R.id.idHeure);
-        if(aplForfait.getApelle() <= 0) {
+        if(aplForfait.getAppels() <= 0) {
             resultHeure.setText("Illimité");
         }
-        else if(aplForfait.getApelle() > 0){
-            resultHeure.setText(aplForfait.getApelle().toString() + " H");
+        else if(aplForfait.getAppels() > 0){
+            resultHeure.setText(aplForfait.getAppels().toString() + " H");
         }
         SMS = (TextView) findViewById(R.id.idNumberSMS);
         if(aplForfait.getSms() <= 0) {
@@ -58,9 +58,16 @@ public class DetalsActivity extends AppCompatActivity {
         else if (aplForfait.getMms() > 0){
             MMS.setText(aplForfait.getMms().toString());
         }
+
         internet = (TextView) findViewById(R.id.montantInternet);
-        internet.setText(aplForfait.getInternet().toString() + " GO");
-        periode = (TextView) findViewById(R.id.Result);
+        if (aplForfait.getInternet() < 1000 && aplForfait.getInternet() >=0){
+            internet.setText(aplForfait.getInternet() + " Mo");
+        }
+        else if (aplForfait.getInternet() >= 1000){
+            int calcul = ((int) aplForfait.getInternet()) / 1000;
+            internet.setText(calcul + " Go");
+        }
+                periode = (TextView) findViewById(R.id.Result);
         if (aplForfait.getEngagement() <= 0){
             periode.setText("Sans engagement");
         }
@@ -68,7 +75,12 @@ public class DetalsActivity extends AppCompatActivity {
             periode.setText(aplForfait.getEngagement().toString() + " mois");
         }
 
+        promo = (ImageView) findViewById(R.id.idPromo);
+        if (aplForfait.getPromo() == 1){
+            promo.setImageResource(R.drawable.promo);
+        }
 
-
+        datefin = (TextView) findViewById(R.id.idDatefin);
+        datefin.setText(aplForfait.getFin());
     }
 }

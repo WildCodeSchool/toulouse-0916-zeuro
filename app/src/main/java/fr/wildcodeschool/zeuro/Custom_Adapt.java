@@ -31,17 +31,29 @@ public class Custom_Adapt extends ArrayAdapter<ForfaitModel> {
             ImageView element = (ImageView) rowView.findViewById(R.id.icon);
             TextView apelle = (TextView) rowView.findViewById(R.id.appel);
             TextView prix   = (TextView) rowView.findViewById(R.id.prix);
+            ImageView promo = (ImageView)rowView.findViewById(R.id.idPromo);
 
-            if(m.getApelle() >= 5){
+            if(m.getAppels() >= 5){
                 apelle.setText("Illimité");
             }
             else {
-                apelle.setText(m.getApelle().toString() + " H");
+                apelle.setText(m.getAppels().toString() + " H");
             }
 
-            prix.setText(m.getPrix().toString() + " €");
-            ptiText.setText(m.getInternet().toString() + " Go");
-            element.setImageResource(m.setPictureLogo(m.getImgoperateur()));
+            prix.setText(m.getPrix() + " €");
+            if (m.getInternet() < 1000 && m.getInternet() >=0){
+                ptiText.setText(m.getInternet() + " Mo");
+            }
+            else if (m.getInternet() >= 1000){
+                int calcul = ((int) m.getInternet()) / 1000;
+                ptiText.setText(calcul + " Go");
+            }
+
+            element.setImageResource(m.setPictureLogo(m.getOperateur()));
+
+            if (m.getPromo() == 1){
+                promo.setImageResource(R.drawable.promo);
+            }
 
 
 

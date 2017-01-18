@@ -9,46 +9,33 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ForfaitModel implements Serializable {
-    private Integer apelle, sms, mms, internet, engagement;
-    private String imgoperateur;
+    private Integer appels, sms, mms, engagement, promo, internet;
+    private String operateur, fin, lien;
     private float prix;
-
     int imglogo;
+
     public ForfaitModel() {
     }
 
-    public ForfaitModel(String imgoperateur, Integer apelle, Integer sms, Integer mms, Integer internet, Integer engagement, Float prix) {
-        this.imgoperateur = imgoperateur;
-        this.apelle = apelle;
-        this.sms = sms;
-        this.mms = mms;
-        this.internet = internet;
+    public ForfaitModel(Integer appels, Integer engagement, String fin, Integer internet, String lien, Integer mms, String operateur, float prix, Integer promo, Integer sms) {
+        this.appels = appels;
         this.engagement = engagement;
+        this.fin = fin;
+        this.internet = internet;
+        this.lien = lien;
+        this.mms = mms;
+        this.operateur = operateur;
         this.prix = prix;
+        this.promo = promo;
+        this.sms = sms;
     }
 
-    public Float getPrix() {
-        return prix;
+    public Integer getAppels() {
+        return appels;
     }
 
-    public void setPrix(Float prix) {
-        this.prix = prix;
-    }
-
-    public String getImgoperateur() {
-        return imgoperateur;
-    }
-
-    public void setImgoperateur(String imgoperateur) {
-        this.imgoperateur = imgoperateur;
-    }
-
-    public Integer getApelle() {
-        return apelle;
-    }
-
-    public void setApelle(Integer apelle) {
-        this.apelle = apelle;
+    public void setAppels(Integer appels) {
+        this.appels = appels;
     }
 
     public Integer getSms() {
@@ -67,14 +54,6 @@ public class ForfaitModel implements Serializable {
         this.mms = mms;
     }
 
-    public Integer getInternet() {
-        return internet;
-    }
-
-    public void setInternet(Integer internet) {
-        this.internet = internet;
-    }
-
     public Integer getEngagement() {
         return engagement;
     }
@@ -83,8 +62,56 @@ public class ForfaitModel implements Serializable {
         this.engagement = engagement;
     }
 
-    public int setPictureLogo(String imgoperateur){
-        switch(imgoperateur) {
+    public Integer getPromo() {
+        return promo;
+    }
+
+    public void setPromo(Integer promo) {
+        this.promo = promo;
+    }
+
+    public String getOperateur() {
+        return operateur;
+    }
+
+    public void setOperateur(String operateur) {
+        this.operateur = operateur;
+    }
+
+    public String getFin() {
+        return fin;
+    }
+
+    public void setFin(String fin) {
+        this.fin = fin;
+    }
+
+    public String getLien() {
+        return lien;
+    }
+
+    public void setLien(String lien) {
+        this.lien = lien;
+    }
+
+    public Integer getInternet() {
+        return internet;
+    }
+
+    public void setInternet(Integer internet) {
+        this.internet = internet;
+    }
+
+    public float getPrix() {
+        return prix;
+    }
+
+    public void setPrix(float prix) {
+        this.prix = prix;
+    }
+
+    public int setPictureLogo(String operateur){
+        switch(operateur) {
             case "sfr":
                 imglogo = R.drawable.logo_sfr;
                 break;

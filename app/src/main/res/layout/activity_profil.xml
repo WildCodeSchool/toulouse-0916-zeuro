@@ -25,12 +25,10 @@
         android:layout_width="match_parent"
         android:layout_height="380dp"
         android:orientation="vertical"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/linearLayout"
         android:layout_below="@+id/buttonret"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/buttonvalidate">
-
+        android:layout_alignParentStart="true">
 
         <TextView
             android:layout_width="wrap_content"
@@ -46,9 +44,6 @@
             android:layout_height="40dp"
             android:id="@+id/idSeekAppel"
             app:corner_radius="10"
-            app:min_value="1"
-            app:max_value="5"
-            app:gap="0"
             app:bar_color="#F7BB88"
             app:bar_highlight_color="#E07416"
             app:left_thumb_color="#BC340C"
@@ -62,6 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
             android:layout_marginBottom="10dp">
+
         <TextView
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
@@ -94,9 +90,6 @@
             android:layout_height="40dp"
             android:id="@+id/idSeekPrix"
             app:corner_radius="10"
-            app:min_value="0"
-            app:max_value="50"
-            app:gap="0"
             app:bar_color="#F7BB88"
             app:bar_highlight_color="#E07416"
             app:left_thumb_color="#BC340C"
@@ -142,9 +135,6 @@
             android:layout_height="40dp"
             android:id="@+id/idSeekInternet"
             app:corner_radius="10"
-            app:min_value="0"
-            app:max_value="50"
-            app:gap="0"
             app:bar_color="#F7BB88"
             app:bar_highlight_color="#E07416"
             app:left_thumb_color="#BC340C"
@@ -190,10 +180,6 @@
             android:layout_height="40dp"
             android:id="@+id/idSeekSMS"
             app:corner_radius="10"
-            app:min_value="50"
-            app:max_value="1000"
-            app:steps="50"
-            app:gap="0"
             app:bar_color="#F7BB88"
             app:bar_highlight_color="#E07416"
             app:left_thumb_color="#BC340C"
@@ -239,10 +225,6 @@
             android:layout_height="40dp"
             android:id="@+id/idSeekMMS"
             app:corner_radius="10"
-            app:min_value="50"
-            app:max_value="1000"
-            app:gap="0"
-            app:steps="50"
             app:bar_color="#F7BB88"
             app:bar_highlight_color="#E07416"
             app:left_thumb_color="#BC340C"
@@ -275,13 +257,12 @@
 
     </LinearLayout>
 
-    <Button
-        android:background="@drawable/checkmark"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/buttonvalidate"
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true" />
-
+        android:id="@+id/SaveButton"
+        android:layout_below="@id/linearLayout"
+        android:layout_marginTop="10dp"/>
 
 </RelativeLayout>
