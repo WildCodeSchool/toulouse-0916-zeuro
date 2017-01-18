@@ -1,19 +1,26 @@
 package fr.wildcodeschool.zeuro;
 
 import android.app.Activity;
+import android.provider.SyncStateContract;
+import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class Custom_Adapt extends ArrayAdapter<ForfaitModel> {
+    private final static String TAG = "CUSTOM_ADAPT";
+
     private final Activity context;
-    private final ArrayList<ForfaitModel> listForfait;
+    private ArrayList<ForfaitModel> listForfait;
     private ProfilActivity profileActivity;
+    private ArrayList<ForfaitModel> Backup;
 
     public Custom_Adapt(Activity context, ArrayList<ForfaitModel> listForfait) {
         super(context, R.layout.list, listForfait);
@@ -58,6 +65,41 @@ public class Custom_Adapt extends ArrayAdapter<ForfaitModel> {
 
 
         return  rowView;
+    }
+
+    @Override
+    public @NonNull Filter getFilter() {
+        return new Filter() {
+            @SuppressWarnings("unchecked")
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                Log.d(TAG, "**** PUBLISHING RESULTS for: " + constraint);
+                listForfait = (ArrayList<ForfaitModel>) results.values;
+                Custom_Adapt.this.notifyDataSetChanged();
+            }
+
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                Log.d(TAG, "**** PERFORM FILTERING for: " + constraint);
+                ArrayList<ForfaitModel> filteredResults = new ArrayList<ForfaitModel>();
+                FilterSingleton filters = FilterSingleton.getInstance();
+
+                for (ForfaitModel forfait : Custom_Adapt.this.listForfait ) {
+                    if (forfait.getAppels() >= filters.getAppelMin() && forfait.getAppels() <= filters.getAppelMax()
+                            && forfait.getPrix() >= filters.getPrixMin() && forfait.getPrix() <= filters.getPrixMax()
+                            && forfait.getInternet() >= filters.getInternetMin() && forfait.getInternet() <= filters.getInternetMax()
+                            && forfait.getSms() >= filters.getSmsMin() && forfait.getSms() <= filters.getSmsMax()
+                            && forfait.getMms() >= filters.getMmsMin() && forfait.getMms() <= filters.getMmsMax()){
+                        filteredResults.add(forfait);
+                    }
+                }
+
+                FilterResults results = new FilterResults();
+                results.values = filteredResults;
+
+                return results;
+            }
+        };
     }
 
 }

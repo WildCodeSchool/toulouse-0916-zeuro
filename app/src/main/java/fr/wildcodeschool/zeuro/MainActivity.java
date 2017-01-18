@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ProfilActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,1);
             }
         });
 
@@ -215,6 +215,12 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    @Override
+    protected void onActivityResult(int requestCode,int resultCode, Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+        getFragmentManager().beginTransaction().remove(getFragmentManager().findFragmentById(R.id.idListFragment)).commit();
+        getFragmentManager().beginTransaction().add(R.id.idListFragment, new ListFragment()).commit();
     }
 
 }

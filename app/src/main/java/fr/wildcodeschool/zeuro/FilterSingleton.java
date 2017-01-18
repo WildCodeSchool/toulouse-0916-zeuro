@@ -1,25 +1,45 @@
 package fr.wildcodeschool.zeuro;
 
 
+import android.content.Context;
+
+import java.util.ArrayList;
+
+import fr.wildcodeschool.zeuro.DBHandler.DBHandler;
+
 public class FilterSingleton {
     private static FilterSingleton INSTANCE = new FilterSingleton();
 
     private float prixMin, prixMax;
     private int appelMin, appelMax, smsMin, smsMax, mmsMin, mmsMax, internetMin, internetMax;
     private boolean isButtonCheck;
+    private ArrayList<ForfaitModel> tampon;
 
     private FilterSingleton() {
+        this.prixMin = 0;
+        this.prixMax = 50;
+        this.appelMin = 0;
+        this.appelMax = 5;
+        this.smsMin = 0;
+        this.smsMax = 1000;
+        this.mmsMin = 0;
+        this.mmsMax = 1000;
+        this.internetMin = 0;
+        this.internetMax = 50000;
+        this.isButtonCheck = true;
+        this.tampon = new ArrayList<>();
+    }
 
-        this.prixMin = prixMin;
-        this.prixMax = prixMax;
-        this.appelMin = appelMin;
-        this.appelMax = appelMax;
-        this.smsMin = smsMin;
-        this.smsMax = smsMax;
-        this.mmsMin = mmsMin;
-        this.mmsMax = mmsMax;
-        this.internetMin = internetMin;
-        this.internetMax = internetMax;
+    public ArrayList<ForfaitModel> getTampon() {
+        return tampon;
+    }
+
+    public void setTampon(ArrayList<ForfaitModel> tampon) {
+        this.tampon = tampon;
+    }
+
+    public void addtoTampon(ForfaitModel forfaits) {
+        this.tampon.add(forfaits);
     }
 
     public boolean isButtonCheck() {
@@ -114,6 +134,8 @@ public class FilterSingleton {
         if (INSTANCE == null) {
             INSTANCE = new FilterSingleton();
         }
+
         return INSTANCE;
     }
+
 }

@@ -27,7 +27,6 @@ public class Splash extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
         this.mDBHelper = new DBHandler(this);
         //this.copyDatabase(this);
         // check if database exist

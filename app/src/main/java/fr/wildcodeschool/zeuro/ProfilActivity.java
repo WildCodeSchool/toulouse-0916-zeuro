@@ -41,15 +41,6 @@ public class ProfilActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil);
 
-        /* USELESS ?
-        ArrayList<Integer[]> savelist = mDBHandler.getsavesseekbar();
-
-        //methode pr recuperer le min de 1ere ligne (appel)
-        int a = savelist.get(0)[0];
-
-        //pr changer une valeur l'id ds seekbar
-        this.mDBHandler.setValueMinEtMax(1, 1, 5);*/
-
         saveSwitch = (Switch) findViewById(R.id.SaveButton);
         this.mDBHandler = new DBHandler(this);
         seekbarAppel();
@@ -75,8 +66,9 @@ public class ProfilActivity extends AppCompatActivity {
         buttonreturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ProfilActivity.this, MainActivity.class);
-                startActivity(intent);
+                Intent intent = new Intent();
+                setResult(1,intent);
+                finish();
             }
         });
   
@@ -111,7 +103,7 @@ public class ProfilActivity extends AppCompatActivity {
                 if (FilterSingleton.getInstance().isButtonCheck()) {
                     mDBHandler.setValueMinEtMax(idAppel, minValue.intValue(), maxValue.intValue());
                 }
-                    FilterSingleton.getInstance().setPrixMin(minValue.intValue());
+                    FilterSingleton.getInstance().setAppelMin(minValue.intValue());
                     FilterSingleton.getInstance().setAppelMax(maxValue.intValue());
             }
         });
@@ -160,8 +152,9 @@ public class ProfilActivity extends AppCompatActivity {
         final TextView tvMin = (TextView) findViewById(R.id.Internetmin);
         final TextView tvMax = (TextView) findViewById(R.id.Internetmax);
 
+        internetSeekBar.setSteps(100);
         internetSeekBar.setGap(1);
-        internetSeekBar.setMinValue(0).setMaxValue(50).apply();
+        internetSeekBar.setMinValue(0).setMaxValue(50000).apply();
         internetSeekBar.setMinStartValue(mDBHandler.getsavesseekbar().get(2)[0]).setMaxStartValue(mDBHandler.getsavesseekbar().get(2)[1]).apply();
         // set listener
         internetSeekBar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
@@ -169,7 +162,19 @@ public class ProfilActivity extends AppCompatActivity {
             public void valueChanged(Number minValue, Number maxValue) {
                 tvMin.setText(String.valueOf(minValue));
                 tvMax.setText(String.valueOf(maxValue));
-                if (maxValue.intValue()==50)tvMax.setText("50 +");
+                if (maxValue.intValue()>=1000){
+                    int a = maxValue.intValue();
+                    tvMax.setText(a / 1000 + " Go");
+                }else if (maxValue.intValue() < 1000){
+                    tvMax.setText(maxValue + " Mo");
+                }
+                if(minValue.intValue() < 1000){
+                    tvMin.setText(minValue + " Mo");
+                }
+                else if (minValue.intValue() >= 1000){
+                    int b = minValue.intValue();
+                    tvMin.setText( b / 1000 + " Go");
+                }
             }
         });
 
@@ -216,8 +221,8 @@ public class ProfilActivity extends AppCompatActivity {
                 if (FilterSingleton.getInstance().isButtonCheck()){
                     mDBHandler.setValueMinEtMax(idSms, minValue.intValue(), maxValue.intValue());
                 }
-                FilterSingleton.getInstance().setPrixMin(minValue.intValue());
-                FilterSingleton.getInstance().setAppelMax(maxValue.intValue());
+                FilterSingleton.getInstance().setSmsMin(minValue.intValue());
+                FilterSingleton.getInstance().setSmsMax(maxValue.intValue());
             }
         });
     }
@@ -251,8 +256,8 @@ public class ProfilActivity extends AppCompatActivity {
                 if (FilterSingleton.getInstance().isButtonCheck()){
                     mDBHandler.setValueMinEtMax(idMms, minValue.intValue(), maxValue.intValue());
                 }
-                FilterSingleton.getInstance().setPrixMin(minValue.intValue());
-                FilterSingleton.getInstance().setAppelMax(maxValue.intValue());
+                FilterSingleton.getInstance().setMmsMin(minValue.intValue());
+                FilterSingleton.getInstance().setMmsMax(maxValue.intValue());
             }
         });
     }

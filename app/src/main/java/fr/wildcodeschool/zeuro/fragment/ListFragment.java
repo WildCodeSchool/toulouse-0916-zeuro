@@ -19,6 +19,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import fr.wildcodeschool.zeuro.Custom_Adapt;
 import fr.wildcodeschool.zeuro.DetalsActivity;
@@ -30,10 +32,8 @@ import fr.wildcodeschool.zeuro.R;
 
 public class ListFragment extends Fragment  {
     private final String TAG = "result";
-    private ProfilActivity lol;
     private ListView mListeView;
     private ArrayList<ForfaitModel> listForfait = new ArrayList<>();
-    private Button recherche;
     private Number appelmin = FilterSingleton.getInstance().getAppelMin();
     private Number appelmax = FilterSingleton.getInstance().getAppelMax();
     private Number prixmin = FilterSingleton.getInstance().getPrixMin();
@@ -50,10 +50,7 @@ public class ListFragment extends Fragment  {
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
     DatabaseReference myRef = database.child("forfaits");
 
-
-
     public ListFragment () {
-
     }
 
     @Override
@@ -68,16 +65,29 @@ public class ListFragment extends Fragment  {
                 Log.d(TAG, "onChildAdded:" + dataSnapshot.getKey());
 
                 ForfaitModel forfait = dataSnapshot.getValue(ForfaitModel.class);
-                listForfait.add(forfait);
-            /*    for (int i = 0; i<listForfait.size(); i++) {
-                    if (listForfait.get(i).getApelle() < appelmin.intValue() || listForfait.get(i).getApelle() > appelmax.intValue() || listForfait.get(i).getPrix() < prixmin.intValue() || listForfait.get(i).getPrix() > prixmax.intValue() || listForfait.get(i).getInternet() < internetmin.intValue() || listForfait.get(i).getInternet() > internetmax.intValue()){
 
-                        listForfait.remove(i);
-                        i--;
-                    }
-                }*/
+
+                if (forfait.getAppels() >= appelmin.intValue() && forfait.getAppels() <= appelmax.intValue()
+                        && forfait.getPrix() >= prixmin.intValue() && forfait.getPrix() <= prixmax.intValue()
+                        && forfait.getInternet() >= internetmin.intValue() && forfait.getInternet() <= internetmax.intValue()
+                        && forfait.getSms() >= smsmin.intValue() && forfait.getSms() <= smsmax.intValue()
+                        && forfait.getMms() >= mmsmin.intValue() && forfait.getMms() <= mmsmax.intValue()) {
+                    listForfait.add(forfait);
+
+                }
                 final Custom_Adapt listAdap = new Custom_Adapt(getActivity(), listForfait);
+                Collections.sort(listForfait, new Comparator<ForfaitModel>() {
+                    @Override
+                    public int compare(ForfaitModel o1, ForfaitModel o2) {
+                        float a =  o1.getPrix() * 100;
+                        float b =  o2.getPrix() * 100;
+                        return (int)( a - b);
+                    }
+                });
+
+
                 mListeView.setAdapter(listAdap);
+
             }
 
             @Override
