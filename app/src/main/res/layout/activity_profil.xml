@@ -23,9 +23,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="380dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/linearLayout"
         android:layout_below="@+id/buttonret"
         android:layout_alignParentStart="true">
@@ -263,6 +263,6 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/SaveButton"
         android:layout_below="@id/linearLayout"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="40dp"/>
 
 </RelativeLayout>

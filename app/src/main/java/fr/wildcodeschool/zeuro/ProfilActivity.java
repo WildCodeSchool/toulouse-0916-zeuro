@@ -90,7 +90,7 @@ public class ProfilActivity extends AppCompatActivity {
         final TextView tvMin = (TextView) findViewById(R.id.Appelmin);
         final TextView tvMax = (TextView) findViewById(R.id.Appelmax);
 
-        appelSeekbar.setGap(15);
+        appelSeekbar.setGap(1);
         appelSeekbar.setMinValue(0).setMaxValue(5);
         appelSeekbar.setMinStartValue(mDBHandler.getsavesseekbar().get(0)[0]).setMaxStartValue(mDBHandler.getsavesseekbar().get(0)[1]).apply();
         // set listener
@@ -125,7 +125,7 @@ public class ProfilActivity extends AppCompatActivity {
         final TextView tvMin = (TextView) findViewById(R.id.Pricemin);
         final TextView tvMax = (TextView) findViewById(R.id.Pricemax);
 
-        prixSeekbar.setGap(10);
+        prixSeekbar.setGap(1);
         prixSeekbar.setMinValue(0).setMaxValue(50).apply();
         prixSeekbar.setMinStartValue(mDBHandler.getsavesseekbar().get(1)[0]).setMaxStartValue(mDBHandler.getsavesseekbar().get(1)[1]).apply();
         // set listener
@@ -160,7 +160,7 @@ public class ProfilActivity extends AppCompatActivity {
         final TextView tvMin = (TextView) findViewById(R.id.Internetmin);
         final TextView tvMax = (TextView) findViewById(R.id.Internetmax);
 
-        internetSeekBar.setGap(10);
+        internetSeekBar.setGap(1);
         internetSeekBar.setMinValue(0).setMaxValue(50).apply();
         internetSeekBar.setMinStartValue(mDBHandler.getsavesseekbar().get(2)[0]).setMaxStartValue(mDBHandler.getsavesseekbar().get(2)[1]).apply();
         // set listener
@@ -194,8 +194,8 @@ public class ProfilActivity extends AppCompatActivity {
         final TextView tvMin = (TextView) findViewById(R.id.Smsmin);
         final TextView tvMax = (TextView) findViewById(R.id.Smsmax);
 
-        smsSeekbar.setSteps(20);
-        smsSeekbar.setGap(5);
+        smsSeekbar.setSteps(50);
+        smsSeekbar.setGap(1000);
         smsSeekbar.setMinValue(0).setMaxValue(1000).apply();
         smsSeekbar.setMinStartValue(mDBHandler.getsavesseekbar().get(3)[0]).setMaxStartValue(mDBHandler.getsavesseekbar().get(3)[1]).apply();
         // set listener
@@ -229,8 +229,8 @@ public class ProfilActivity extends AppCompatActivity {
         final TextView tvMin = (TextView) findViewById(R.id.Mmsmin);
         final TextView tvMax = (TextView) findViewById(R.id.Mmsmax);
 
-        mmsSeekbar.setSteps(20);
-        mmsSeekbar.setGap(50);
+        mmsSeekbar.setSteps(50);
+        mmsSeekbar.setGap(1000);
         mmsSeekbar.setMinValue(0).setMaxValue(1000).apply();
         mmsSeekbar.setMinStartValue(mDBHandler.getsavesseekbar().get(4)[0]).setMaxStartValue(mDBHandler.getsavesseekbar().get(4)[1]).apply();
         // set listener
