@@ -30,7 +30,15 @@ public class MainActivity extends AppCompatActivity
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private Button buttonProfil;
+    public void startService(){
+        Intent i = new Intent(MainActivity.this, NotifService.class);
+        startService(i);
+    }
+    public void stopService(){
+        Intent i = new Intent(MainActivity.this, NotifService.class);
+        stopService(i);
 
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +80,8 @@ public class MainActivity extends AppCompatActivity
 
 
         getFragmentManager().beginTransaction().add(R.id.idListFragment, new ListFragment()).commit();
+        stopService();
+        startService();
 
     }
 
@@ -83,6 +93,7 @@ public class MainActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
+
     }
 
 
