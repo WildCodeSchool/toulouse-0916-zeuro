@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+ xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_helpscreen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="fr.wildcodeschool.zeuro.Helpscreen">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/buttonretourhelp"
+            android:background="@drawable/btnreturn" />
+
+        <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:layout_below="@id/buttonretourhelp"
+        android:text="CHANGEMENT DE FORFAIT SANS ENGAGEMENT" />
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:textStyle="bold"
+            android:text="ETAPE 1 :"/>
+
+        <TextView
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Obtenir son code RIO (Relevé d'Identité Opérateur) en appellant le 3179 (numéro gratuit)."/>
+
+        <TextView
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Le code RIO vous est envoyé par SMS en appellant ce numéro. Obtenir son code RIO est indispensbale pour la portabilité de votre numéro de mobile (pour garder votre numéro)."/>
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:textStyle="bold"
+            android:text="ETAPE 2 :"/>
+
+        <TextView
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choisir son forfait, aller sur le site de l'opérateur et suivre les instructions. Vous devrez choisir à quelle date vous souhaitez effectuer le changement, le jour &quot;J&quot;."/>
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:textStyle="bold"
+            android:text="ETAPE 3 :"/>
+
+        <TextView
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lorsque le jour &quot;J&quot; est arrivé, pensez à sauvegarder vos contacts enregistrés sur l'ancienne carte SIM, sur votre téléphone. Eteignez votre téléphone et remplacez votre carte SIM par la nouvelle. Si cela ne fonctionne pas instantanément, laissez la nouvelle carte SIM dans le téléphone et attendez quelques heures." />
+
+        <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:layout_below="@id/buttonretourhelp"
+        android:text="CHANGEMENT DE FORFAIT AVEC ENGAGEMENT" />
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:textStyle="bold"
+            android:text="ETAPE 1 :"/>
+
+        <TextView
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Obtenir son code RIO (Relevé d'Identité Opérateur) en appellant le 3179 (numéro gratuit depuis votre mobile)."/>
+
+        <TextView
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Le code RIO vous est envoyé par SMS en appellant ce numéro. Lors de l'appel, la durée de votre engagement vous sera communiquée ainsi que sa date de fin. Obtenir son code RIO est indispensbale pour la portabilité de votre numéro de mobile (pour garder votre numéro)."/>
+
+        <TextView
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Si votre période d’engagement n’est pas terminée et que vous souhaitez quand même changer d’opérateur, sachez que vous devrez payer le quart du montant restant à payer jusqu’à la fin de la période d’engagement (la loi Chatel alinéa 2 de l’article L. 121-84-6 du Code de la consommation). De manière concrète, s’il vous reste 12 mois d’engagement, vous devrez payer 3 mois d’abonnement pour pouvoir résilier votre contrat. Demandez cependant à votre service client combien cela vous coûtera. Certains opérateurs ont en effet la tendance à ajouter au montant restant à payer des frais de résiliation qui peuvent s’avérer importants."/>
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:textStyle="bold"
+            android:text="ETAPE 2 :"/>
+
+        <TextView
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Si vous souhaitez conserver votre téléphone, il faut le &quot;désimolocker&quot; (on dit aussi le débloquer). En effet, votre téléphone, s'il a été acheté dans le cadre d’un forfait est souvent bloqué pour fonctionner uniquement avec l’opérateur concerné."/>
+
+        <TextView
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comment faire pour &quot;désimlocker&quot; ? Appelez le service client de votre opérateur actuel. Si vous avez le téléphone depuis plus de 6 mois, votre opérateur est légalement obligé de vous débloquer le téléphone gratuitement. Chez certains opérateurs (Orange par exemple) le desimlockage peut aussi se demander en ligne sur le compte client."/>
+
+        <TextView
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Vous aurez besoin de fournir à votre service client le n° IMEI de votre mobile. Ce numéro se trouve à l’intérieur du téléphone lorsque vous enlevez la batterie, sur la boîte d’emballage du téléphone, ou encore sur la facture de souscription du contrat. Mais le plus simple est de le récupérer à l’écran en composant sur le clavier : *#06#."/>
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:textStyle="bold"
+            android:text="ETAPE 3 :"/>
+
+        <TextView
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choisir son forfait, aller sur le site de l'opérateur et suivre les instructions. Vous devrez choisir à quelle date vous souhaitez effectuer le changement, le jour &quot;J&quot;."/>
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:textStyle="bold"
+            android:text="ETAPE 4 :"/>
+
+        <TextView
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lorsque le jour &quot;J&quot; est arrivé, pensez à sauvegarder vos contacts enregistrés sur l'ancienne carte SIM, sur votre téléphone. Eteignez votre téléphone et remplacez votre carte SIM actuelle par la nouvelle. Si cela ne fonctionne pas instantanément, laissez la nouvelle carte SIM dans le téléphone et attendez quelques heures."/>
+    </LinearLayout>
+</ScrollView>
