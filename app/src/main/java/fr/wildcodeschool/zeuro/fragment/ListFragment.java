@@ -73,7 +73,6 @@ public class ListFragment extends Fragment  {
                         && forfait.getSms() >= smsmin.intValue() && forfait.getSms() <= smsmax.intValue()
                         && forfait.getMms() >= mmsmin.intValue() && forfait.getMms() <= mmsmax.intValue()) {
                     listForfait.add(forfait);
-
                 }
                 final Custom_Adapt listAdap = new Custom_Adapt(getActivity(), listForfait);
                 Collections.sort(listForfait, new Comparator<ForfaitModel>() {
