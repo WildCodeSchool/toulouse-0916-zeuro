@@ -28,7 +28,7 @@ import fr.wildcodeschool.zeuro.DBHandler.DBHandler;
 public class NotifService extends Service {
 
     private DBHandler dbHandler = new DBHandler(this);
-    private ForfaitModel comparetForfait;
+    private ForfaitModel comparetForfait = null;
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -61,7 +61,17 @@ public class NotifService extends Service {
                         && forfait.getInternet() >= dbHandler.getsavesseekbar().get(2)[0] && forfait.getInternet() <= dbHandler.getsavesseekbar().get(2)[1]
                         && forfait.getSms() >= dbHandler.getsavesseekbar().get(3)[0] && forfait.getSms() <= dbHandler.getsavesseekbar().get(3)[1]
                         && forfait.getMms() >= dbHandler.getsavesseekbar().get(4)[0] && forfait.getMms() <= dbHandler.getsavesseekbar().get(4)[1]) {
-                    showNotif(forfait);
+                    if(comparetForfait == null) {
+                        comparetForfait = new ForfaitModel();
+                        comparetForfait = forfait;
+                        showNotif(comparetForfait);
+                    }
+                    if(comparetForfait.getPrix() > forfait.getPrix()){
+                        comparetForfait = new ForfaitModel();
+                        comparetForfait = forfait;
+                        showNotif(comparetForfait);
+                    }
+
                 }
 
             }
@@ -101,7 +111,7 @@ public class NotifService extends Service {
                         .setSmallIcon(R.drawable.splash)
                         .setVibrate(new long[]{400, 400, 400, 400})
                         .setContentTitle("Zeuro")
-                        .setContentText("nouveaux forfaits disponibles!!" );
+                        .setContentText("nouveaux forfaits disponibles!!" + forfait.getPrix()+"€");
 // Creates an explicit intent for an Activity in your app
         Intent notifIntent = new Intent(this, MainActivity.class);
 
