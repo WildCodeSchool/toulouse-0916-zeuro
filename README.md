@@ -1,4 +1,4 @@
-																	#Zeuro
+#Zeuro
 
 Bonjour et bienvenu sur l’application de comparateur de forfaits mobiles Zeuro!
 
@@ -10,7 +10,7 @@ Configuration minimale:  Version Android KitKat(4.4).
 
 
 
-																	##Utilisation
+##Utilisation
 
 Pour utiliser Zeuro, pas besoin de créer de compte ou bien encore de renseigner des informations personnelles. Il suffit simplement de lancer l’application et l’ensemble des forfaits existants se présentera devant vous. 
 
